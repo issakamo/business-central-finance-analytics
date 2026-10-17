@@ -1,0 +1,5 @@
+relationship e4b9ccd7-44e8-403e-be96-dc8694858754
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fact Sales'.postingDate
+	toColumn: LocalDateTable_c4514360-6a2d-4783-a98a-de23fa530737.Date
+

@@ -1,0 +1,16 @@
+{
+  "name": "Finance Analytics API ruleset",
+  "description": "Per-tenant extension (portfolio demo). AppSourceCop stays enabled; only AppSource-specific rules are suppressed.",
+  "rules": [
+    {
+      "id": "AS0084",
+      "action": "None",
+      "justification": "Per-tenant extension: IDs 53100-53149 are in the PTE range 50000-99999, not an AppSource range."
+    },
+    {
+      "id": "AS0092",
+      "action": "None",
+      "justification": "Portfolio demo without an Azure Application Insights resource. Telemetry can be added later via applicationInsightsConnectionString."
+    }
+  ]
+}

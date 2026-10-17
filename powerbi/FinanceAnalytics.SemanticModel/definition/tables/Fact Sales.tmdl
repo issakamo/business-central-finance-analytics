@@ -1,0 +1,142 @@
+table 'Fact Sales'
+	lineageTag: 39056876-b37c-4ed5-bc7d-d869e3ab11f8
+
+	column entryNo
+		dataType: int64
+		formatString: 0
+		lineageTag: 69c8c4cb-d0c5-4e04-a8f6-ddedadb73cc0
+		summarizeBy: sum
+		sourceColumn: entryNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column postingDate
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b853b7cb-827f-40b1-ac87-80262d3a7fbf
+		summarizeBy: none
+		sourceColumn: postingDate
+
+		variation Variation
+			isDefault
+			relationship: e4b9ccd7-44e8-403e-be96-dc8694858754
+			defaultHierarchy: LocalDateTable_c4514360-6a2d-4783-a98a-de23fa530737.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column documentType
+		dataType: string
+		lineageTag: 6d5caec6-7d12-48f1-a6b6-ee9922793392
+		summarizeBy: none
+		sourceColumn: documentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column documentNo
+		dataType: string
+		lineageTag: 52b66f02-cc89-4bc2-89d2-4f8df3b03072
+		summarizeBy: none
+		sourceColumn: documentNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column itemNo
+		dataType: string
+		lineageTag: e95a7520-59a2-438f-9a8b-98d85695195f
+		summarizeBy: none
+		sourceColumn: itemNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column sourceType
+		dataType: string
+		lineageTag: 3fdda509-d2e8-411c-a21e-e434770838ce
+		summarizeBy: none
+		sourceColumn: sourceType
+
+		annotation SummarizationSetBy = Automatic
+
+	column customerNo
+		dataType: string
+		lineageTag: 78953b0a-43c0-4767-b4f0-c8418e8dc59c
+		summarizeBy: none
+		sourceColumn: customerNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column salespersonCode
+		dataType: string
+		lineageTag: 4b9cb66c-e02e-4117-9134-ff765d5dba59
+		summarizeBy: none
+		sourceColumn: salespersonCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column globalDimension1Code
+		dataType: string
+		lineageTag: cc06fe69-6d72-4bf3-910e-6da85832a36f
+		summarizeBy: none
+		sourceColumn: globalDimension1Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoicedQuantity
+		dataType: double
+		lineageTag: 22120a55-1132-423b-afbc-96589879aa43
+		summarizeBy: sum
+		sourceColumn: invoicedQuantity
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column salesAmountActual
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: b77fb67f-e50a-4cdd-be54-4fba4b3fa65f
+		summarizeBy: sum
+		sourceColumn: salesAmountActual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column costAmountActual
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 05153289-68b6-4343-898e-73c62518f892
+		summarizeBy: sum
+		sourceColumn: costAmountActual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column ETag
+		dataType: string
+		lineageTag: 3a9c23ee-431d-4672-a372-2b553df876ef
+		summarizeBy: none
+		sourceColumn: ETag
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact Sales' = m
+		mode: import
+		source =
+				let
+				    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+				    DEV = Source{[Name="DEV"]}[Data],
+				    #"CRONUS USA, Inc." = DEV{[Name="CRONUS USA, Inc."]}[Data],
+				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
+				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
+				    salesValueEntries_table = #"issakamo/financeAnalytics/v1.0"{[Name="salesValueEntries",Signature="table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(salesValueEntries_table,{{"salesAmountActual", Currency.Type}, {"costAmountActual", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
