@@ -2,3 +2,15 @@ relationship 4364ee81-743e-3ad3-3d1f-72c4f4719ab8
 	fromColumn: 'Fact Sales'.postingDate
 	toColumn: Date.Date
 
+relationship AutoDetected_6bdd1761-4c68-4950-bec9-e26167726c25
+	fromColumn: 'Fact Sales'.itemNo
+	toColumn: 'Dim Item'.itemNo
+
+relationship AutoDetected_445c0933-1a4b-42c4-932b-49616632fb79
+	fromColumn: 'Fact Sales'.customerNo
+	toColumn: 'Dim Customer'.customerNo
+
+relationship AutoDetected_912652a2-269f-48b1-9d84-d458d704aad6
+	fromColumn: 'Fact Sales'.salespersonCode
+	toColumn: 'Dim Salesperson'.salespersonCode
+

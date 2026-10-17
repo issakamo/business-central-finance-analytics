@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 139.33332824707031,
-        "y": 0
+        "x": 260.41177079605063,
+        "y": 103.02004119404201
       },
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 0
+            "x": 772.63954884354678,
+            "y": 89.01769719672015
           },
           "nodeIndex": "Fact Sales",
           "nodeLineageTag": "39056876-b37c-4ed5-bc7d-d869e3ab11f8",
@@ -19,24 +19,25 @@
             "height": 416,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 4
         },
         {
           "location": {
-            "x": 284,
-            "y": 50
+            "x": 494.69195516733225,
+            "y": 44.101637853322416
           },
           "nodeIndex": "Date",
+          "nodeLineageTag": "db2f22ce-b43e-4f6f-a4ab-aeee5bbad25c",
           "size": {
             "height": 200,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 5
         },
         {
           "location": {
-            "x": 568,
-            "y": 156
+            "x": 767.176146357024,
+            "y": 531.07912588024931
           },
           "nodeIndex": "_Measures",
           "nodeLineageTag": "11d55bab-bd67-4e2a-9d38-6d9dbb035111",
@@ -44,11 +45,50 @@
             "height": 104,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1113.3031617620616,
+            "y": 378.65941511428372
+          },
+          "nodeIndex": "Dim Customer",
+          "nodeLineageTag": "7b261f09-50c9-4208-a132-2c473465e1bb",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 460.65577868526179,
+            "y": 326.81883022856738
+          },
+          "nodeIndex": "Dim Item",
+          "nodeLineageTag": "8069131b-5ee0-4826-811e-6ff08ad3143c",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1035.0767346337213,
+            "y": 42.7756016018742
+          },
+          "nodeIndex": "Dim Salesperson",
+          "nodeLineageTag": "dd0aaef0-da54-46be-8873-0e411328915f",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 6
         }
       ],
       "name": "All tables",
-      "zoomValue": 100,
+      "zoomValue": 69.889313929107615,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

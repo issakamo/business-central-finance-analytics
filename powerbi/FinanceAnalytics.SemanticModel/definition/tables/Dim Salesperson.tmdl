@@ -1,0 +1,45 @@
+table 'Dim Salesperson'
+	lineageTag: dd0aaef0-da54-46be-8873-0e411328915f
+
+	column salespersonCode
+		dataType: string
+		lineageTag: 2185d67e-5a9a-4ffc-8816-1be9a5b25a1f
+		summarizeBy: none
+		sourceColumn: salespersonCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: d8968a51-0fa7-45e5-850d-556a7c50d527
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column email
+		dataType: string
+		lineageTag: f41ec2bd-80ca-4619-851d-37494c965af3
+		summarizeBy: none
+		sourceColumn: email
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Salesperson' = m
+		mode: import
+		source =
+				let
+				    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+				    DEV = Source{[Name="DEV"]}[Data],
+				    #"CRONUS USA, Inc." = DEV{[Name="CRONUS USA, Inc."]}[Data],
+				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
+				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
+				    salespeople_table = #"issakamo/financeAnalytics/v1.0"{[Name="salespeople",Signature="table"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(salespeople_table,{"ETag"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

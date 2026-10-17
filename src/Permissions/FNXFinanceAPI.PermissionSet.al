@@ -1,6 +1,9 @@
 namespace FinanceAnalytics.Reporting;
 
+using Microsoft.CRM.Team;
+using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Ledger;
+using Microsoft.Sales.Customer;
 
 permissionset 53100 "FNX FINANCE API"
 {
@@ -9,5 +12,11 @@ permissionset 53100 "FNX FINANCE API"
 
     Permissions =
         query "FNX Sales Value Entries API" = X,
-        tabledata "Value Entry" = R;
+        query "FNX Customers API" = X,
+        query "FNX Items API" = X,
+        query "FNX Salespeople API" = X,
+        tabledata "Value Entry" = R,
+        tabledata Customer = R,
+        tabledata Item = R,
+        tabledata "Salesperson/Purchaser" = R;
 }

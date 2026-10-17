@@ -118,14 +118,6 @@ table 'Fact Sales'
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	column ETag
-		dataType: string
-		lineageTag: 3a9c23ee-431d-4672-a372-2b553df876ef
-		summarizeBy: none
-		sourceColumn: ETag
-
-		annotation SummarizationSetBy = Automatic
-
 	partition 'Fact Sales' = m
 		mode: import
 		source =
@@ -136,9 +128,10 @@ table 'Fact Sales'
 				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
 				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
 				    salesValueEntries_table = #"issakamo/financeAnalytics/v1.0"{[Name="salesValueEntries",Signature="table"]}[Data],
-				    #"Changed Type" = Table.TransformColumnTypes(salesValueEntries_table,{{"salesAmountActual", Currency.Type}, {"costAmountActual", Currency.Type}})
+				    #"Changed Type" = Table.TransformColumnTypes(salesValueEntries_table,{{"salesAmountActual", Currency.Type}, {"costAmountActual", Currency.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"ETag"})
 				in
-				    #"Changed Type"
+				    #"Removed Columns"
 
 	annotation PBI_NavigationStepName = Navigation
 

@@ -1,0 +1,78 @@
+table 'Dim Item'
+	lineageTag: 8069131b-5ee0-4826-811e-6ff08ad3143c
+
+	column itemNo
+		dataType: string
+		lineageTag: 9bf76a69-c83d-4ced-b6ab-8635b5ea1027
+		summarizeBy: none
+		sourceColumn: itemNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: ab0e0409-0fe9-47cc-b7f8-366cb661f324
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column itemCategoryCode
+		dataType: string
+		lineageTag: dc222e18-8409-4d7b-b265-4b2b5f171a12
+		summarizeBy: none
+		sourceColumn: itemCategoryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column inventoryPostingGroup
+		dataType: string
+		lineageTag: c09fd9ef-a087-4fd1-adf3-0fee0aea6d28
+		summarizeBy: none
+		sourceColumn: inventoryPostingGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column baseUnitOfMeasure
+		dataType: string
+		lineageTag: 28b2e488-7ce7-4e59-b296-67e227b8c717
+		summarizeBy: none
+		sourceColumn: baseUnitOfMeasure
+
+		annotation SummarizationSetBy = Automatic
+
+	column type
+		dataType: string
+		lineageTag: 69b7e846-341a-4d56-aff5-687be7cda371
+		summarizeBy: none
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column blocked
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bf64c21c-827c-4895-9401-12cfe01ee479
+		summarizeBy: none
+		sourceColumn: blocked
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Item' = m
+		mode: import
+		source =
+				let
+				    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+				    DEV = Source{[Name="DEV"]}[Data],
+				    #"CRONUS USA, Inc." = DEV{[Name="CRONUS USA, Inc."]}[Data],
+				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
+				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
+				    items_table = #"issakamo/financeAnalytics/v1.0"{[Name="items",Signature="table"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(items_table,{"ETag"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

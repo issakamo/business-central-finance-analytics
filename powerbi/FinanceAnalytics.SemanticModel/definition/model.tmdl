@@ -9,13 +9,16 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["Fact Sales","_Measures"]
+annotation PBI_QueryOrder = ["Fact Sales","_Measures","Dim Customer","Dim Item","Dim Salesperson"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
 ref table 'Fact Sales'
 ref table Date
 ref table _Measures
+ref table 'Dim Customer'
+ref table 'Dim Item'
+ref table 'Dim Salesperson'
 
 ref cultureInfo en-US
 

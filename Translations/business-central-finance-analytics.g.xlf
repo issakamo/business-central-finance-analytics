@@ -3,10 +3,25 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="business-central-finance-analytics">
     <body>
       <group id="body">
+        <trans-unit id="Query 2921302009 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customers API</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query FNX Customers API - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 1442298586 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Items API</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query FNX Items API - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Query 349266147 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Value Entries API</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query FNX Sales Value Entries API - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 148707405 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Salespeople API</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query FNX Salespeople API - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 3534666356 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finance Analytics API (read)</source>
