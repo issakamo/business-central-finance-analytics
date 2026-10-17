@@ -1,0 +1,135 @@
+table Date
+	lineageTag: db2f22ce-b43e-4f6f-a4ab-aeee5bbad25c
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: m/d/yyyy
+		lineageTag: acc64f3c-fecc-4171-b451-fbd139e06dc0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Year
+		formatString: 0
+		lineageTag: 71dd1791-62cb-4088-8bf3-b3db3d41027a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		lineageTag: 3807b922-ec12-4f51-a8f1-d57b8be539d4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Quarter'
+		lineageTag: 251e9559-6f2d-4791-a954-6fe872abfbcd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year Quarter]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		isHidden
+		formatString: 0
+		lineageTag: c82fa85e-d699-4ab5-86bc-8da6f94f9f95
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: 83f9ed8d-f95f-41cd-8f1a-ecdc1e11e74d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+		sortByColumn: 'Month Number'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month'
+		lineageTag: 7d4f4d90-5eb8-4181-9f5f-2ffcf507d913
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year Month]
+		sortByColumn: 'Year Month Sort'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Year Month Sort'
+		isHidden
+		formatString: 0
+		lineageTag: 4b48d185-9797-4098-8bd6-b272add34998
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year Month Sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Start'
+		formatString: m/d/yyyy
+		lineageTag: ba08088a-8e9b-4b81-8b7a-b43274174723
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month Start]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Day of Week Number'
+		isHidden
+		formatString: 0
+		lineageTag: 0e9a3856-02b3-4d79-b615-f7ebc688eca0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Day of Week Number]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		lineageTag: 90f87afe-1dcf-4a0b-838c-c8b136312e9d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Day of Week]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Date = calculated
+		mode: import
+		source =
+				
+				VAR FirstYear = YEAR ( MIN ( 'Fact Sales'[postingDate] ) )
+				VAR LastYear  = YEAR ( MAX ( 'Fact Sales'[postingDate] ) )
+				RETURN
+				    ADDCOLUMNS (
+				        CALENDAR ( DATE ( FirstYear, 1, 1 ), DATE ( LastYear, 12, 31 ) ),
+				        "Year", YEAR ( [Date] ),
+				        "Quarter", "Q" & QUARTER ( [Date] ),
+				        "Year Quarter", YEAR ( [Date] ) & " Q" & QUARTER ( [Date] ),
+				        "Month Number", MONTH ( [Date] ),
+				        "Month", FORMAT ( [Date], "mmm" ),
+				        "Year Month", FORMAT ( [Date], "mmm yyyy" ),
+				        "Year Month Sort", YEAR ( [Date] ) * 100 + MONTH ( [Date] ),
+				        "Month Start", DATE ( YEAR ( [Date] ), MONTH ( [Date] ), 1 ),
+				        "Day of Week Number", WEEKDAY ( [Date], 2 ),
+				        "Day of Week", FORMAT ( [Date], "ddd" )
+				    )
+
+	annotation PBI_Id = 5a7767577e5f4cab8e84950bfd1b7530
+

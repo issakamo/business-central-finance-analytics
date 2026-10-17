@@ -9,13 +9,13 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["Fact Sales"]
+annotation PBI_QueryOrder = ["Fact Sales","_Measures"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
 ref table 'Fact Sales'
-ref table DateTableTemplate_bd22cfc0-1d28-48c8-a6f2-20402231cfae
-ref table LocalDateTable_c4514360-6a2d-4783-a98a-de23fa530737
+ref table Date
+ref table _Measures
 
 ref cultureInfo en-US
 

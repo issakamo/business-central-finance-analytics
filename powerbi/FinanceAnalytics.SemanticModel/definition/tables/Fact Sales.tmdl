@@ -17,11 +17,6 @@ table 'Fact Sales'
 		summarizeBy: none
 		sourceColumn: postingDate
 
-		variation Variation
-			isDefault
-			relationship: e4b9ccd7-44e8-403e-be96-dc8694858754
-			defaultHierarchy: LocalDateTable_c4514360-6a2d-4783-a98a-de23fa530737.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
@@ -84,9 +79,12 @@ table 'Fact Sales'
 
 	column invoicedQuantity
 		dataType: double
+		isHidden
 		lineageTag: 22120a55-1132-423b-afbc-96589879aa43
 		summarizeBy: sum
 		sourceColumn: invoicedQuantity
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -94,10 +92,13 @@ table 'Fact Sales'
 
 	column salesAmountActual
 		dataType: decimal
+		isHidden
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: b77fb67f-e50a-4cdd-be54-4fba4b3fa65f
 		summarizeBy: sum
 		sourceColumn: salesAmountActual
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -105,10 +106,13 @@ table 'Fact Sales'
 
 	column costAmountActual
 		dataType: decimal
+		isHidden
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: 05153289-68b6-4343-898e-73c62518f892
 		summarizeBy: sum
 		sourceColumn: costAmountActual
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 

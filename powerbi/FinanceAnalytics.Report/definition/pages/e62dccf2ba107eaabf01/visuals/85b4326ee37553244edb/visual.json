@@ -5,8 +5,8 @@
     "x": 0,
     "y": 0,
     "z": 0,
-    "height": 384,
-    "width": 600,
+    "height": 192,
+    "width": 264,
     "tabOrder": 0
   },
   "visual": {
@@ -17,22 +17,17 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "Fact Sales"
-                        }
-                      },
-                      "Property": "salesAmountActual"
+                    "SourceRef": {
+                      "Entity": "_Measures"
                     }
                   },
-                  "Function": 0
+                  "Property": "Sales Amount"
                 }
               },
-              "queryRef": "Sum(Fact Sales.salesAmountActual)",
-              "nativeQueryRef": "Sum of salesAmountActual"
+              "queryRef": "_Measures.Sales Amount",
+              "nativeQueryRef": "Sales Amount"
             }
           ]
         }
@@ -41,18 +36,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "Fact Sales"
-                      }
-                    },
-                    "Property": "salesAmountActual"
+                  "SourceRef": {
+                    "Entity": "_Measures"
                   }
                 },
-                "Function": 0
+                "Property": "Sales Amount"
               }
             },
             "direction": "Descending"
@@ -62,28 +52,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5db54a2a8ff3c044fb08",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Fact Sales"
-                  }
-                },
-                "Property": "salesAmountActual"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

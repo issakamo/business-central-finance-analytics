@@ -1,0 +1,51 @@
+table _Measures
+	lineageTag: 11d55bab-bd67-4e2a-9d38-6d9dbb035111
+
+	measure 'Sales Amount' = SUM ( 'Fact Sales'[salesAmountActual] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 24c889d1-907e-4a97-94cd-75c984e1c8bc
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure COGS = - SUM ( 'Fact Sales'[costAmountActual] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 30521ff2-06a8-4a24-b1b3-4772fff1437b
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Gross Margin' = [Sales Amount] - [COGS]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 9abf936c-1e9c-43d4-b307-515408d28b23
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Gross Margin %' = DIVIDE ( [Gross Margin], [Sales Amount] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: cfdc379f-fbaf-406c-a0cb-a92718500baa
+
+	measure 'Quantity Sold' = - SUM ( 'Fact Sales'[invoicedQuantity] )
+		formatString: 0
+		lineageTag: ee7fa802-6ce6-4f57-ad54-8884823400db
+
+	measure 'Sales Amount PY' = CALCULATE ( [Sales Amount], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c8ff4b64-196e-481c-b264-1c1abd1e20c1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales YoY %' = DIVIDE ( [Sales Amount] - [Sales Amount PY], [Sales Amount PY] )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c4ce510e-c87a-4dba-ae60-b11d8bdbaadd
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
