@@ -1,0 +1,140 @@
+table 'Fact AR Detail'
+	lineageTag: 81dd21f4-ac39-4f51-9962-0475b76b2b41
+
+	column entryNo
+		dataType: int64
+		formatString: 0
+		lineageTag: d7f571a6-02aa-4623-9977-a70f7c1a026a
+		summarizeBy: sum
+		sourceColumn: entryNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column custLedgerEntryNo
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ac1c9fb-f3bb-431b-9d9a-c3d1feacda96
+		summarizeBy: sum
+		sourceColumn: custLedgerEntryNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column entryType
+		dataType: string
+		lineageTag: be0b6f97-fb42-4da1-97bc-958b26c414cd
+		summarizeBy: none
+		sourceColumn: entryType
+
+		annotation SummarizationSetBy = Automatic
+
+	column postingDate
+		dataType: dateTime
+		formatString: m/d/yyyy
+		lineageTag: 89773e55-6cd1-4fd6-8f41-1e3aa315b7ed
+		summarizeBy: none
+		sourceColumn: postingDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column customerNo
+		dataType: string
+		lineageTag: eb87e87f-c76a-4da6-bb47-519fa6764ca1
+		summarizeBy: none
+		sourceColumn: customerNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column amountLCY
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 90058a34-3d83-42e1-8a0f-6b7f7a0c982b
+		summarizeBy: sum
+		sourceColumn: amountLCY
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column documentType
+		dataType: string
+		lineageTag: d338a2ae-ffb0-4026-8777-7a1f3767d83b
+		summarizeBy: none
+		sourceColumn: documentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column documentNo
+		dataType: string
+		lineageTag: 945187a2-8b96-4513-b12d-6b2ccf38ffe5
+		summarizeBy: none
+		sourceColumn: documentNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column documentPostingDate
+		dataType: dateTime
+		formatString: m/d/yyyy
+		lineageTag: adfab0d7-4e9b-4875-aad4-5a1847531aa9
+		summarizeBy: none
+		sourceColumn: documentPostingDate
+
+		variation Variation
+			isDefault
+			relationship: 13a52ced-4e17-4c0e-8134-2d4d29562848
+			defaultHierarchy: LocalDateTable_4cca1769-b34c-4a51-9ac9-8cf1feeb4de2.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column dueDate
+		dataType: dateTime
+		formatString: m/d/yyyy
+		lineageTag: da430ad5-978c-4dc2-a702-b3061718852c
+		summarizeBy: none
+		sourceColumn: dueDate
+
+		variation Variation
+			isDefault
+			relationship: edd51494-a128-4684-b703-62b8999f3393
+			defaultHierarchy: LocalDateTable_12bd8807-55b3-4509-baa2-9a9663cca005.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column salespersonCode
+		dataType: string
+		lineageTag: 7a825f42-d8dd-4eb7-9ff4-a680f4469898
+		summarizeBy: none
+		sourceColumn: salespersonCode
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fact AR Detail' = m
+		mode: import
+		source =
+				let
+				    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+				    DEV = Source{[Name="DEV"]}[Data],
+				    #"CRONUS USA, Inc." = DEV{[Name="CRONUS USA, Inc."]}[Data],
+				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
+				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
+				    arDetailEntries_table = #"issakamo/financeAnalytics/v1.0"{[Name="arDetailEntries",Signature="table"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(arDetailEntries_table,{"ETag"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"postingDate", type date}, {"amountLCY", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -80,6 +80,61 @@ table _Measures
 		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: 56603a9d-ef80-4784-a0e2-bc4e0eacee1a
 
+	measure 'AR Balance' =
+			
+			VAR Cutoff = [Reporting Through]
+			VAR AsOf = MIN ( MAX ( 'Date'[Date] ), Cutoff )
+			RETURN
+			    IF (
+			        MIN ( 'Date'[Date] ) > Cutoff,
+			        BLANK (),
+			        CALCULATE (
+			            SUM ( 'Fact AR Detail'[amountLCY] ),
+			            REMOVEFILTERS ( 'Date' ),
+			            'Date'[Date] <= AsOf
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 923ca263-24bc-4e54-a59a-49dbe72cb94f
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'AR Aged Balance' =
+			
+			VAR Cutoff = [Reporting Through]
+			VAR AsOf = MIN ( MAX ( 'Date'[Date] ), Cutoff )
+			VAR MinDays = MIN ( 'Aging Bucket'[Min Days] )
+			VAR MaxDays = MAX ( 'Aging Bucket'[Max Days] )
+			VAR LedgerEntries =
+			    CALCULATETABLE (
+			        SUMMARIZE (
+			            'Fact AR Detail',
+			            'Fact AR Detail'[custLedgerEntryNo],
+			            'Fact AR Detail'[dueDate]
+			        ),
+			        REMOVEFILTERS ( 'Date' ),
+			        'Date'[Date] <= AsOf
+			    )
+			VAR Result =
+			    SUMX (
+			        LedgerEntries,
+			        VAR DaysOverdue = INT ( AsOf - 'Fact AR Detail'[dueDate] )
+			        VAR Remaining =
+			            CALCULATE (
+			                SUM ( 'Fact AR Detail'[amountLCY] ),
+			                REMOVEFILTERS ( 'Date' ),
+			                'Date'[Date] <= AsOf
+			            )
+			        RETURN
+			            IF ( DaysOverdue >= MinDays && DaysOverdue <= MaxDays, Remaining )
+			    )
+			RETURN
+			    IF ( MIN ( 'Date'[Date] ) > Cutoff || Result = 0, BLANK (), Result )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 7670b23b-7b27-40c2-823d-dd5265f92f0d
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
 	partition _Measures = m
 		mode: import
 		source =

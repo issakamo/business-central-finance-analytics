@@ -1,0 +1,62 @@
+table 'Aging Bucket'
+	lineageTag: b17a14f1-2c50-4ec1-8475-033bb275d84e
+
+	column Bucket
+		lineageTag: 828e48d1-6e4f-48cd-9d04-2379117f779e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Bucket]
+		sortByColumn: Sort
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Min Days'
+		isHidden
+		formatString: 0
+		lineageTag: 443d346c-a186-4c4f-a1de-57827fabcbf3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Min Days]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Max Days'
+		isHidden
+		formatString: 0
+		lineageTag: 9b2313de-0165-41fb-b7b5-5fd8452d0be1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Max Days]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sort
+		isHidden
+		formatString: 0
+		lineageTag: 14d96045-6577-47ca-a311-00308e3895b0
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Sort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Aging Bucket' = calculated
+		mode: import
+		source =
+				
+				DATATABLE (
+				    "Bucket", STRING,
+				    "Min Days", INTEGER,
+				    "Max Days", INTEGER,
+				    "Sort", INTEGER,
+				    {
+				        { "Current", -100000, 0, 1 },
+				        { "1-30", 1, 30, 2 },
+				        { "31-60", 31, 60, 3 },
+				        { "61-90", 61, 90, 4 },
+				        { "Over 90", 91, 100000, 5 }
+				    }
+				)
+
+	annotation PBI_Id = 52a4939adbbb4211b8b04ad01448ed69
+

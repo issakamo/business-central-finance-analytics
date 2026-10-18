@@ -7,6 +7,8 @@ using Microsoft.Finance.GeneralLedger.Ledger;
 using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Ledger;
 using Microsoft.Sales.Customer;
+using Microsoft.Sales.Receivables;
+
 
 permissionset 53100 "FNX FINANCE API"
 {
@@ -21,11 +23,14 @@ permissionset 53100 "FNX FINANCE API"
         query "FNX GL Actuals API" = X,
         query "FNX GL Budget API" = X,
         query "FNX GL Accounts API" = X,
+        query "FNX AR Detail API" = X,
         tabledata "Value Entry" = R,
         tabledata Customer = R,
         tabledata Item = R,
         tabledata "Salesperson/Purchaser" = R,
         tabledata "G/L Account" = R,
         tabledata "G/L Entry" = R,
-        tabledata "G/L Budget Entry" = R;
+        tabledata "G/L Budget Entry" = R,
+        tabledata "Cust. Ledger Entry" = R,
+        tabledata "Detailed Cust. Ledg. Entry" = R;
 }

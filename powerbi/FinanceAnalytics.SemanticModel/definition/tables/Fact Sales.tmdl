@@ -94,6 +94,7 @@ table 'Fact Sales'
 
 	column salesAmountActual
 		dataType: decimal
+		isHidden
 		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
 		lineageTag: b77fb67f-e50a-4cdd-be54-4fba4b3fa65f
 		summarizeBy: sum

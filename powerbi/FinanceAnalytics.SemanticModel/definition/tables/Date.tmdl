@@ -120,7 +120,8 @@ table Date
 				            {
 				                MIN ( 'Fact Sales'[postingDate] ),
 				                MIN ( 'Fact GL Actual'[postingDate] ),
-				                MIN ( 'Fact GL Budget'[budgetDate] )
+				                MIN ( 'Fact GL Budget'[budgetDate] ),
+				                MIN ( 'Fact AR Detail'[postingDate] )
 				            },
 				            [Value]
 				        )
@@ -131,7 +132,8 @@ table Date
 				            {
 				                MAX ( 'Fact Sales'[postingDate] ),
 				                MAX ( 'Fact GL Actual'[postingDate] ),
-				                MAX ( 'Fact GL Budget'[budgetDate] )
+				                MAX ( 'Fact GL Budget'[budgetDate] ),
+				                MAX ( 'Fact AR Detail'[postingDate] )
 				            },
 				            [Value]
 				        )

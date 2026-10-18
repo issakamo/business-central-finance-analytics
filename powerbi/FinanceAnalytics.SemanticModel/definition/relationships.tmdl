@@ -18,6 +18,20 @@ relationship b1e5dbb9-8ddc-80f9-567f-1540058e7d6d
 	fromColumn: 'Fact GL Budget'.glAccountNo
 	toColumn: 'Dim GL Account'.glAccountNo
 
+relationship 13a52ced-4e17-4c0e-8134-2d4d29562848
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fact AR Detail'.documentPostingDate
+	toColumn: LocalDateTable_4cca1769-b34c-4a51-9ac9-8cf1feeb4de2.Date
+
+relationship 98b61d6c-43ec-81cf-fd42-4287783a1b0e
+	fromColumn: 'Fact AR Detail'.customerNo
+	toColumn: 'Dim Customer'.customerNo
+
+relationship edd51494-a128-4684-b703-62b8999f3393
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fact AR Detail'.dueDate
+	toColumn: LocalDateTable_12bd8807-55b3-4509-baa2-9a9663cca005.Date
+
 relationship 4364ee81-743e-3ad3-3d1f-72c4f4719ab8
 	fromColumn: 'Fact Sales'.postingDate
 	toColumn: Date.Date
@@ -28,5 +42,9 @@ relationship e28b2093-dabc-d59a-df20-31a7fb855d4f
 
 relationship 1b368204-b264-8f03-aa4d-a4ede7e560ff
 	fromColumn: 'Fact GL Budget'.budgetDate
+	toColumn: Date.Date
+
+relationship 40c972e2-8e08-3394-3aca-b6f32074eed9
+	fromColumn: 'Fact AR Detail'.postingDate
 	toColumn: Date.Date
 
