@@ -37,6 +37,49 @@ table _Measures
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: c4ce510e-c87a-4dba-ae60-b11d8bdbaadd
 
+	measure 'Reporting Through' =
+			
+			VAR LastSale = CALCULATE ( MAX ( 'Fact Sales'[postingDate] ), REMOVEFILTERS () )
+			RETURN EOMONTH ( LastSale, -1 )
+		formatString: m/d/yyyy
+		lineageTag: d1d9e320-f080-4640-bc43-3d081b53fdfe
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	measure 'GL Actual' =
+			
+			VAR Cutoff = [Reporting Through]
+			RETURN CALCULATE ( - SUM ( 'Fact GL Actual'[amount] ), KEEPFILTERS ( 'Date'[Date] <= Cutoff ) )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 5be51f08-e8ed-48ad-98f2-176fb73a0e5f
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'GL Budget' =
+			
+			VAR Cutoff = [Reporting Through]
+			RETURN CALCULATE ( - SUM ( 'Fact GL Budget'[amount] ), KEEPFILTERS ( 'Date'[Date] <= Cutoff ) )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 79732579-fd2f-4809-8a68-bff4670edfc2
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'GL Budget Full Year' = - SUM ( 'Fact GL Budget'[amount] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 9429fc35-291e-4e38-b769-ab2b5d331468
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'GL Variance' = [GL Actual] - [GL Budget]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 2341d27f-6031-45c4-b981-8daa97564e1f
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'GL Variance %' = DIVIDE ( [GL Variance], ABS ( [GL Budget] ) )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 56603a9d-ef80-4784-a0e2-bc4e0eacee1a
+
 	partition _Measures = m
 		mode: import
 		source =

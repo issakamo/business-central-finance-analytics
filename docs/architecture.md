@@ -4,3 +4,4 @@
 - **Prior-year depreciation.** 8 FA G/L journal entries dated 12/31/2024 (account 82000, $43,659).
 - **Future-dated deferrals.** Purchase invoice 108226 posts deferral entries to 68210 monthly through 2027. Because of this, the actuals cutoff is derived from the last sales posting date, not the latest G/L date.
 - **Scope.** 2025 P&L activity is almost entirely sales (40140), COGS (50110) and depreciation (82000).
+- **G/L to sub-ledger reconciliation.** Fact Sales (Value Entry, net of discounts) equals G/L 40140 (gross sales) plus 40910 (Discounts and Allowances) to the cent: 2026 = $360,227.38.
