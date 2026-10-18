@@ -1,7 +1,3 @@
-relationship 4364ee81-743e-3ad3-3d1f-72c4f4719ab8
-	fromColumn: 'Fact Sales'.postingDate
-	toColumn: Date.Date
-
 relationship AutoDetected_6bdd1761-4c68-4950-bec9-e26167726c25
 	fromColumn: 'Fact Sales'.itemNo
 	toColumn: 'Dim Item'.itemNo
@@ -13,4 +9,24 @@ relationship AutoDetected_445c0933-1a4b-42c4-932b-49616632fb79
 relationship AutoDetected_912652a2-269f-48b1-9d84-d458d704aad6
 	fromColumn: 'Fact Sales'.salespersonCode
 	toColumn: 'Dim Salesperson'.salespersonCode
+
+relationship 7e1f8101-f21c-7cf3-32ec-6fefa302623a
+	fromColumn: 'Fact GL Actual'.glAccountNo
+	toColumn: 'Dim GL Account'.glAccountNo
+
+relationship b1e5dbb9-8ddc-80f9-567f-1540058e7d6d
+	fromColumn: 'Fact GL Budget'.glAccountNo
+	toColumn: 'Dim GL Account'.glAccountNo
+
+relationship 4364ee81-743e-3ad3-3d1f-72c4f4719ab8
+	fromColumn: 'Fact Sales'.postingDate
+	toColumn: Date.Date
+
+relationship e28b2093-dabc-d59a-df20-31a7fb855d4f
+	fromColumn: 'Fact GL Actual'.postingDate
+	toColumn: Date.Date
+
+relationship 1b368204-b264-8f03-aa4d-a4ede7e560ff
+	fromColumn: 'Fact GL Budget'.budgetDate
+	toColumn: Date.Date
 

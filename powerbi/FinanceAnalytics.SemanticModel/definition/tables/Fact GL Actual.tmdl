@@ -1,0 +1,103 @@
+table 'Fact GL Actual'
+	lineageTag: 52f7b18c-715c-4f24-b0e1-fb4a350e6d17
+
+	column entryNo
+		dataType: int64
+		formatString: 0
+		lineageTag: c6ae81b8-4009-46cf-8ec5-e34f2a4dbe3e
+		summarizeBy: sum
+		sourceColumn: entryNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column postingDate
+		dataType: dateTime
+		formatString: m/d/yyyy
+		lineageTag: 84fe8af3-d099-4af7-aec7-88c20dfa04cc
+		summarizeBy: none
+		sourceColumn: postingDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column glAccountNo
+		dataType: string
+		lineageTag: e012e3b6-fd9c-4822-b8c8-f217b7373df2
+		summarizeBy: none
+		sourceColumn: glAccountNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column documentType
+		dataType: string
+		lineageTag: 0e592424-c148-4ac1-ba13-3daf6375bf52
+		summarizeBy: none
+		sourceColumn: documentType
+
+		annotation SummarizationSetBy = Automatic
+
+	column documentNo
+		dataType: string
+		lineageTag: 724d81cc-e9a6-4775-98e8-a70918163c40
+		summarizeBy: none
+		sourceColumn: documentNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column sourceCode
+		dataType: string
+		lineageTag: 5d0eb4c3-4408-4bdd-856b-a808faabff50
+		summarizeBy: none
+		sourceColumn: sourceCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column globalDimension1Code
+		dataType: string
+		lineageTag: 8b1aae92-2cb0-45c3-b6a9-bfa4ef260776
+		summarizeBy: none
+		sourceColumn: globalDimension1Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column globalDimension2Code
+		dataType: string
+		lineageTag: 5e5396aa-026f-4346-94b2-85ae7407356e
+		summarizeBy: none
+		sourceColumn: globalDimension2Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 69803ac8-d8be-4863-b56c-10bf69ba9c80
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition 'Fact GL Actual' = m
+		mode: import
+		source =
+				let
+				    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+				    DEV = Source{[Name="DEV"]}[Data],
+				    #"CRONUS USA, Inc." = DEV{[Name="CRONUS USA, Inc."]}[Data],
+				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
+				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
+				    glActuals_table = #"issakamo/financeAnalytics/v1.0"{[Name="glActuals",Signature="table"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(glActuals_table,{"ETag"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"amount", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

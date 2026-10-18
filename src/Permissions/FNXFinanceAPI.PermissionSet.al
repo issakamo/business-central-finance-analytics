@@ -1,6 +1,9 @@
 namespace FinanceAnalytics.Reporting;
 
 using Microsoft.CRM.Team;
+using Microsoft.Finance.GeneralLedger.Account;
+using Microsoft.Finance.GeneralLedger.Budget;
+using Microsoft.Finance.GeneralLedger.Ledger;
 using Microsoft.Inventory.Item;
 using Microsoft.Inventory.Ledger;
 using Microsoft.Sales.Customer;
@@ -15,8 +18,14 @@ permissionset 53100 "FNX FINANCE API"
         query "FNX Customers API" = X,
         query "FNX Items API" = X,
         query "FNX Salespeople API" = X,
+        query "FNX GL Actuals API" = X,
+        query "FNX GL Budget API" = X,
+        query "FNX GL Accounts API" = X,
         tabledata "Value Entry" = R,
         tabledata Customer = R,
         tabledata Item = R,
-        tabledata "Salesperson/Purchaser" = R;
+        tabledata "Salesperson/Purchaser" = R,
+        tabledata "G/L Account" = R,
+        tabledata "G/L Entry" = R,
+        tabledata "G/L Budget Entry" = R;
 }

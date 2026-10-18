@@ -19,7 +19,7 @@ table Date
 	column Year
 		formatString: 0
 		lineageTag: 71dd1791-62cb-4088-8bf3-b3db3d41027a
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Year]
 
@@ -45,7 +45,7 @@ table Date
 		isHidden
 		formatString: 0
 		lineageTag: c82fa85e-d699-4ab5-86bc-8da6f94f9f95
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Month Number]
 
@@ -73,7 +73,7 @@ table Date
 		isHidden
 		formatString: 0
 		lineageTag: 4b48d185-9797-4098-8bd6-b272add34998
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Year Month Sort]
 
@@ -96,7 +96,7 @@ table Date
 		isHidden
 		formatString: 0
 		lineageTag: 0e9a3856-02b3-4d79-b615-f7ebc688eca0
-		summarizeBy: none
+		summarizeBy: sum
 		isNameInferred
 		sourceColumn: [Day of Week Number]
 
@@ -114,8 +114,28 @@ table Date
 		mode: import
 		source =
 				
-				VAR FirstYear = YEAR ( MIN ( 'Fact Sales'[postingDate] ) )
-				VAR LastYear  = YEAR ( MAX ( 'Fact Sales'[postingDate] ) )
+				VAR FirstYear =
+				    YEAR (
+				        MINX (
+				            {
+				                MIN ( 'Fact Sales'[postingDate] ),
+				                MIN ( 'Fact GL Actual'[postingDate] ),
+				                MIN ( 'Fact GL Budget'[budgetDate] )
+				            },
+				            [Value]
+				        )
+				    )
+				VAR LastYear =
+				    YEAR (
+				        MAXX (
+				            {
+				                MAX ( 'Fact Sales'[postingDate] ),
+				                MAX ( 'Fact GL Actual'[postingDate] ),
+				                MAX ( 'Fact GL Budget'[budgetDate] )
+				            },
+				            [Value]
+				        )
+				    )
 				RETURN
 				    ADDCOLUMNS (
 				        CALENDAR ( DATE ( FirstYear, 1, 1 ), DATE ( LastYear, 12, 31 ) ),

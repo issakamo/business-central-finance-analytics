@@ -12,7 +12,7 @@ table 'Fact Sales'
 
 	column postingDate
 		dataType: dateTime
-		formatString: Long Date
+		formatString: m/d/yyyy
 		lineageTag: b853b7cb-827f-40b1-ac87-80262d3a7fbf
 		summarizeBy: none
 		sourceColumn: postingDate
@@ -20,6 +20,8 @@ table 'Fact Sales'
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column documentType
 		dataType: string
@@ -129,9 +131,10 @@ table 'Fact Sales'
 				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
 				    salesValueEntries_table = #"issakamo/financeAnalytics/v1.0"{[Name="salesValueEntries",Signature="table"]}[Data],
 				    #"Changed Type" = Table.TransformColumnTypes(salesValueEntries_table,{{"salesAmountActual", Currency.Type}, {"costAmountActual", Currency.Type}}),
-				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"ETag"})
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"ETag"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"postingDate", type date}})
 				in
-				    #"Removed Columns"
+				    #"Changed Type1"
 
 	annotation PBI_NavigationStepName = Navigation
 

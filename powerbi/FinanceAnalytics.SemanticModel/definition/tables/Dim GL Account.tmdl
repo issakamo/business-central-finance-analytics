@@ -1,0 +1,62 @@
+table 'Dim GL Account'
+	lineageTag: caa7779a-943c-4e2d-95f0-962112aade4f
+
+	column glAccountNo
+		dataType: string
+		lineageTag: c51aec6a-b919-4a58-b682-6ca4274c8a3d
+		summarizeBy: none
+		sourceColumn: glAccountNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: d4dbc06b-cacd-41ba-9309-18555bab1a38
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column incomeBalance
+		dataType: string
+		lineageTag: 49ebe422-f6b5-44dd-a117-6891a399f4ee
+		summarizeBy: none
+		sourceColumn: incomeBalance
+
+		annotation SummarizationSetBy = Automatic
+
+	column accountCategory
+		dataType: string
+		lineageTag: 873c8b62-5908-4ceb-bf76-c9fbdd8af6dc
+		summarizeBy: none
+		sourceColumn: accountCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column blocked
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 99d43894-fa69-4ef9-8797-46a4fb677285
+		summarizeBy: none
+		sourceColumn: blocked
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim GL Account' = m
+		mode: import
+		source =
+				let
+				    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+				    DEV = Source{[Name="DEV"]}[Data],
+				    #"CRONUS USA, Inc." = DEV{[Name="CRONUS USA, Inc."]}[Data],
+				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
+				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
+				    glAccounts_table = #"issakamo/financeAnalytics/v1.0"{[Name="glAccounts",Signature="table"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(glAccounts_table,{"ETag"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

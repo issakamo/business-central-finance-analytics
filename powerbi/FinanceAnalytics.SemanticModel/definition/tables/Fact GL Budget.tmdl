@@ -1,0 +1,87 @@
+table 'Fact GL Budget'
+	lineageTag: 97d9c664-17b5-481b-97ec-26e819e82758
+
+	column entryNo
+		dataType: int64
+		formatString: 0
+		lineageTag: 216cd58d-dd40-4942-bd65-7574343b0f0f
+		summarizeBy: sum
+		sourceColumn: entryNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column budgetName
+		dataType: string
+		lineageTag: 040b7f64-6500-4d38-a3c6-6ec634e224f1
+		summarizeBy: none
+		sourceColumn: budgetName
+
+		annotation SummarizationSetBy = Automatic
+
+	column budgetDate
+		dataType: dateTime
+		formatString: m/d/yyyy
+		lineageTag: 96c69ef4-b78b-4877-a7ff-3c37c9d26a7e
+		summarizeBy: none
+		sourceColumn: budgetDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column glAccountNo
+		dataType: string
+		lineageTag: 7a1abadb-a5ef-4a94-a7dd-791842eb0a81
+		summarizeBy: none
+		sourceColumn: glAccountNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column globalDimension1Code
+		dataType: string
+		lineageTag: 6c5c8792-736c-4732-ad25-7b144eb3abab
+		summarizeBy: none
+		sourceColumn: globalDimension1Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column globalDimension2Code
+		dataType: string
+		lineageTag: ee5402d9-dd75-4453-8814-091038a625b4
+		summarizeBy: none
+		sourceColumn: globalDimension2Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ff165bfb-6186-4872-8b39-c2a63d63fa2a
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition 'Fact GL Budget' = m
+		mode: import
+		source =
+				let
+				    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+				    DEV = Source{[Name="DEV"]}[Data],
+				    #"CRONUS USA, Inc." = DEV{[Name="CRONUS USA, Inc."]}[Data],
+				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
+				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
+				    glBudgetEntries_table = #"issakamo/financeAnalytics/v1.0"{[Name="glBudgetEntries",Signature="table"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(glBudgetEntries_table,{"ETag"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"amount", Currency.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
