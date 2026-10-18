@@ -135,6 +135,39 @@ table _Measures
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
+	measure 'Credit Sales' =
+			
+			CALCULATE (
+			    SUM ( 'Fact AR Detail'[amountLCY] ),
+			    'Fact AR Detail'[entryType] = "Initial Entry",
+			    'Fact AR Detail'[documentType] IN { "Invoice", "Credit Memo" }
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 0f6897d7-23e9-4ac8-9f24-0ac0e5fb672c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure DSO =
+			
+			VAR Cutoff = [Reporting Through]
+			VAR AsOf = MIN ( MAX ( 'Date'[Date] ), Cutoff )
+			VAR WindowDays = 90
+			VAR SalesInWindow =
+			    CALCULATE (
+			        [Credit Sales],
+			        REMOVEFILTERS ( 'Date' ),
+			        'Date'[Date] > AsOf - WindowDays,
+			        'Date'[Date] <= AsOf
+			    )
+			RETURN
+			    IF (
+			        MIN ( 'Date'[Date] ) > Cutoff,
+			        BLANK (),
+			        DIVIDE ( [AR Balance], SalesInWindow ) * WindowDays
+			    )
+		formatString: 0.0
+		lineageTag: d7181c28-9a21-492f-877d-194db1ed47d6
+
 	partition _Measures = m
 		mode: import
 		source =

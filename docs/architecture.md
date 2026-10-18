@@ -5,3 +5,4 @@
 - **Future-dated deferrals.** Purchase invoice 108226 posts deferral entries to 68210 monthly through 2027. Because of this, the actuals cutoff is derived from the last sales posting date, not the latest G/L date.
 - **Scope.** 2025 P&L activity is almost entirely sales (40140), COGS (50110) and depreciation (82000).
 - **G/L to sub-ledger reconciliation.** Fact Sales (Value Entry, net of discounts) equals G/L 40140 (gross sales) plus 40910 (Discounts and Allowances) to the cent: 2026 = $360,227.38.
+- **DSO basis.** DSO = month-end AR balance / credit sales (AR initial entries for invoices and credit memos, tax-inclusive) in the trailing 90 days x 90. Credit sales run about 6.3% above net item sales (sales tax). No sales credit memos exist in CRONUS, so the "Credit Memo" document type value is assumed, not verified. AR is $0 at every 2025 month-end, so DSO is 0 until 2026.
