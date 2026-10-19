@@ -1,0 +1,94 @@
+table 'Dim Vendor'
+	lineageTag: 79673d71-375d-47ac-8529-bed504037b15
+
+	column vendorNo
+		dataType: string
+		lineageTag: d821e097-c90f-472c-bca3-3ecfa8ea3d97
+		summarizeBy: none
+		sourceColumn: vendorNo
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 97b496e8-601e-4874-8290-cf89ccc43225
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 53898371-ff3d-430f-a05a-59e6aa653bf7
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: f7f061af-64a1-4b5d-ab7b-26dd9f63a73a
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column countryRegionCode
+		dataType: string
+		lineageTag: 7061d645-619b-45c1-993d-f8b28dd1fcda
+		summarizeBy: none
+		sourceColumn: countryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column vendorPostingGroup
+		dataType: string
+		lineageTag: 26750236-f7e4-4dd4-a0fa-6609af77e76e
+		summarizeBy: none
+		sourceColumn: vendorPostingGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	column purchaserCode
+		dataType: string
+		lineageTag: ab10acc8-d307-42f8-9393-c47b0fc1068b
+		summarizeBy: none
+		sourceColumn: purchaserCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column paymentTermsCode
+		dataType: string
+		lineageTag: f6015ee8-cfd5-433f-b6c6-aeddc5c00ae0
+		summarizeBy: none
+		sourceColumn: paymentTermsCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column blocked
+		dataType: string
+		lineageTag: 3e26eb8e-e5cf-4674-a071-34d539cd3e9f
+		summarizeBy: none
+		sourceColumn: blocked
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Vendor' = m
+		mode: import
+		source =
+				let
+				    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+				    DEV = Source{[Name="DEV"]}[Data],
+				    #"CRONUS USA, Inc." = DEV{[Name="CRONUS USA, Inc."]}[Data],
+				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
+				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
+				    vendors_table = #"issakamo/financeAnalytics/v1.0"{[Name="vendors",Signature="table"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(vendors_table,{"ETag"}),
+				    #"Replaced Value" = Table.TransformColumns(#"Removed Columns", {{"blocked", each if _ = null or Text.Trim(_) = "" then "Not blocked" else _, type text}})
+				in
+				    #"Replaced Value"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

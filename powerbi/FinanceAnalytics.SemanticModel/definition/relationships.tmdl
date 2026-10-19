@@ -32,6 +32,20 @@ relationship edd51494-a128-4684-b703-62b8999f3393
 	fromColumn: 'Fact AR Detail'.dueDate
 	toColumn: LocalDateTable_12bd8807-55b3-4509-baa2-9a9663cca005.Date
 
+relationship b7ebd652-a1c3-445e-9070-9f0ef995ad1f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fact AP Detail'.documentPostingDate
+	toColumn: LocalDateTable_ba4904cd-6a0b-4816-896f-323fe0e4c0f3.Date
+
+relationship bb138b5b-726f-4f19-91c0-bc8eac529e2d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Fact AP Detail'.dueDate
+	toColumn: LocalDateTable_58e486c9-7ac6-4dcf-bd62-4175fae465f2.Date
+
+relationship 62d8791f-b68e-4193-9d55-de30ca1ad0fa
+	fromColumn: 'Fact AP Detail'.vendorNo
+	toColumn: 'Dim Vendor'.vendorNo
+
 relationship 4364ee81-743e-3ad3-3d1f-72c4f4719ab8
 	fromColumn: 'Fact Sales'.postingDate
 	toColumn: Date.Date
@@ -46,5 +60,9 @@ relationship 1b368204-b264-8f03-aa4d-a4ede7e560ff
 
 relationship 40c972e2-8e08-3394-3aca-b6f32074eed9
 	fromColumn: 'Fact AR Detail'.postingDate
+	toColumn: Date.Date
+
+relationship 5752853f-9256-8289-1754-8932c5355c13
+	fromColumn: 'Fact AP Detail'.postingDate
 	toColumn: Date.Date
 

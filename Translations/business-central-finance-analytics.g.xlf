@@ -3,6 +3,11 @@
   <file datatype="xml" source-language="en-US" target-language="en-US" original="business-central-finance-analytics">
     <body>
       <group id="body">
+        <trans-unit id="Query 12586588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AP Detailed Ledger Entries API</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query FNX AP Detail API - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Query 533113886 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AR Detailed Ledger Entries API</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -42,6 +47,11 @@
           <source>Salespeople API</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query FNX Salespeople API - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Query 917595825 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendors API</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query FNX Vendors API - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 3534666356 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Finance Analytics API (read)</source>

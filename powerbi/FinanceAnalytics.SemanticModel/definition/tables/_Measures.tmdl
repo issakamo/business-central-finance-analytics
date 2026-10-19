@@ -168,6 +168,94 @@ table _Measures
 		formatString: 0.0
 		lineageTag: d7181c28-9a21-492f-877d-194db1ed47d6
 
+	measure 'AP Balance' =
+			
+			VAR Cutoff = [Reporting Through]
+			VAR AsOf = MIN ( MAX ( 'Date'[Date] ), Cutoff )
+			RETURN
+			    IF (
+			        MIN ( 'Date'[Date] ) > Cutoff,
+			        BLANK (),
+			        - CALCULATE (
+			            SUM ( 'Fact AP Detail'[amountLCY] ),
+			            REMOVEFILTERS ( 'Date' ),
+			            'Date'[Date] <= AsOf
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 065d3b6d-7b84-401c-80bd-bf409afb99d9
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'AP Aged Balance' =
+			
+			VAR Cutoff = [Reporting Through]
+			VAR AsOf = MIN ( MAX ( 'Date'[Date] ), Cutoff )
+			VAR MinDays = MIN ( 'Aging Bucket'[Min Days] )
+			VAR MaxDays = MAX ( 'Aging Bucket'[Max Days] )
+			VAR LedgerEntries =
+			    CALCULATETABLE (
+			        SUMMARIZE (
+			            'Fact AP Detail',
+			            'Fact AP Detail'[vendorLedgerEntryNo],
+			            'Fact AP Detail'[dueDate]
+			        ),
+			        REMOVEFILTERS ( 'Date' ),
+			        'Date'[Date] <= AsOf
+			    )
+			VAR Result =
+			    SUMX (
+			        LedgerEntries,
+			        VAR DaysOverdue = INT ( AsOf - 'Fact AP Detail'[dueDate] )
+			        VAR Remaining =
+			            - CALCULATE (
+			                SUM ( 'Fact AP Detail'[amountLCY] ),
+			                REMOVEFILTERS ( 'Date' ),
+			                'Date'[Date] <= AsOf
+			            )
+			        RETURN
+			            IF ( DaysOverdue >= MinDays && DaysOverdue <= MaxDays, Remaining )
+			    )
+			RETURN
+			    IF ( MIN ( 'Date'[Date] ) > Cutoff || Result = 0, BLANK (), Result )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: fc931c1a-83d6-4bb2-b49c-aaca0617d336
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Credit Purchases' =
+			
+			- CALCULATE (
+			    SUM ( 'Fact AP Detail'[amountLCY] ),
+			    'Fact AP Detail'[entryType] = "Initial Entry",
+			    'Fact AP Detail'[documentType] IN { "Invoice", "Credit Memo" }
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ad23df08-79b3-42d7-a318-b983bc3c937e
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure DPO =
+			
+			VAR Cutoff = [Reporting Through]
+			VAR AsOf = MIN ( MAX ( 'Date'[Date] ), Cutoff )
+			VAR WindowDays = 90
+			VAR COGSInWindow =
+			    CALCULATE (
+			        [COGS],
+			        REMOVEFILTERS ( 'Date' ),
+			        'Date'[Date] > AsOf - WindowDays,
+			        'Date'[Date] <= AsOf
+			    )
+			RETURN
+			    IF (
+			        MIN ( 'Date'[Date] ) > Cutoff,
+			        BLANK (),
+			        DIVIDE ( [AP Balance], COGSInWindow ) * WindowDays
+			    )
+		formatString: 0.0
+		lineageTag: d1098a97-525d-4f14-a5d7-7fb9bb0e340e
+
 	partition _Measures = m
 		mode: import
 		source =
@@ -179,4 +267,6 @@ table _Measures
 				    #"Removed Columns"
 
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
 
