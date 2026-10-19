@@ -27,6 +27,7 @@ permissionset 53100 "FNX FINANCE API"
         query "FNX AR Detail API" = X,
         query "FNX Vendors API" = X,
         query "FNX AP Detail API" = X,
+        query "FNX Inventory Value API" = X,
         tabledata "Value Entry" = R,
         tabledata Customer = R,
         tabledata Item = R,

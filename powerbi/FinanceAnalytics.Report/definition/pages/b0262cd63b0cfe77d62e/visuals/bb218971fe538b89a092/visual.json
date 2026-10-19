@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "bb218971fe538b89a092",
+  "position": {
+    "x": 312,
+    "y": 0,
+    "z": 1,
+    "height": 1080,
+    "width": 696,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Item"
+                    }
+                  },
+                  "Property": "itemNo"
+                }
+              },
+              "queryRef": "Dim Item.itemNo",
+              "nativeQueryRef": "itemNo"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Item"
+                    }
+                  },
+                  "Property": "description"
+                }
+              },
+              "queryRef": "Dim Item.description",
+              "nativeQueryRef": "description"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Inventory Value (Actual)"
+                }
+              },
+              "queryRef": "_Measures.Inventory Value",
+              "nativeQueryRef": "Inventory Value (Actual)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Inventory Expected Cost"
+                }
+              },
+              "queryRef": "_Measures.Inventory Expected Cost",
+              "nativeQueryRef": "Inventory Expected Cost"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "05f65bb53bb0ed0f3d29",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Item"
+              }
+            },
+            "Property": "itemNo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "baee26702cc983f1c265",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dim Item"
+              }
+            },
+            "Property": "description"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "271f6d9225b10ec3ad99",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Inventory Value (Actual)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a0a92fa4f66644260ec7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Inventory Expected Cost"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

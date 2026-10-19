@@ -4,14 +4,14 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 568.51801966305663,
-        "y": 140.55414828899723
+        "x": 482.6679853346883,
+        "y": 219.39452489489929
       },
       "nodes": [
         {
           "location": {
             "x": 772.63954884354678,
-            "y": 221.19797020255712
+            "y": 300.19341736689694
           },
           "nodeIndex": "Fact Sales",
           "nodeLineageTag": "39056876-b37c-4ed5-bc7d-d869e3ab11f8",
@@ -24,7 +24,7 @@
         {
           "location": {
             "x": 1061.3021817345632,
-            "y": 242.10027051090842
+            "y": 321.09571767524824
           },
           "nodeIndex": "Date",
           "nodeLineageTag": "db2f22ce-b43e-4f6f-a4ab-aeee5bbad25c",
@@ -37,7 +37,7 @@
         {
           "location": {
             "x": 767.176146357024,
-            "y": 663.25939888608616
+            "y": 742.254846050426
           },
           "nodeIndex": "_Measures",
           "nodeLineageTag": "11d55bab-bd67-4e2a-9d38-6d9dbb035111",
@@ -50,7 +50,7 @@
         {
           "location": {
             "x": 1044.6231342993669,
-            "y": 469.34550486140921
+            "y": 548.340952025749
           },
           "nodeIndex": "Dim Customer",
           "nodeLineageTag": "7b261f09-50c9-4208-a132-2c473465e1bb",
@@ -63,7 +63,7 @@
         {
           "location": {
             "x": 460.65577868526179,
-            "y": 458.99910323440434
+            "y": 537.9945503987442
           },
           "nodeIndex": "Dim Item",
           "nodeLineageTag": "8069131b-5ee0-4826-811e-6ff08ad3143c",
@@ -75,8 +75,8 @@
         },
         {
           "location": {
-            "x": 485.636514932164,
-            "y": 180.6792102296024
+            "x": 461.31233853912636,
+            "y": 294.01467112528951
           },
           "nodeIndex": "Dim Salesperson",
           "nodeLineageTag": "dd0aaef0-da54-46be-8873-0e411328915f",
@@ -89,7 +89,7 @@
         {
           "location": {
             "x": 1666.3726748679308,
-            "y": 460.29639048344774
+            "y": 539.29183764778759
           },
           "nodeIndex": "Dim GL Account",
           "nodeLineageTag": "caa7779a-943c-4e2d-95f0-962112aade4f",
@@ -102,7 +102,7 @@
         {
           "location": {
             "x": 1400.9324551663731,
-            "y": 246.31965744860233
+            "y": 325.31510461294215
           },
           "nodeIndex": "Fact GL Actual",
           "nodeLineageTag": "52f7b18c-715c-4f24-b0e1-fb4a350e6d17",
@@ -115,7 +115,7 @@
         {
           "location": {
             "x": 1400.1965079772847,
-            "y": 555.05560463769064
+            "y": 634.05105180203043
           },
           "nodeIndex": "Fact GL Budget",
           "nodeLineageTag": "97d9c664-17b5-481b-97ec-26e819e82758",
@@ -128,7 +128,7 @@
         {
           "location": {
             "x": 1701.0033768350841,
-            "y": 157.99089432867962
+            "y": 236.98634149301941
           },
           "nodeIndex": "Fact AR Detail",
           "nodeLineageTag": "81dd21f4-ac39-4f51-9962-0475b76b2b41",
@@ -141,7 +141,7 @@
         {
           "location": {
             "x": 2122.4361706374552,
-            "y": 310.54354654357303
+            "y": 389.53899370791282
           },
           "nodeIndex": "Aging Bucket",
           "nodeLineageTag": "b17a14f1-2c50-4ec1-8475-033bb275d84e",
@@ -154,7 +154,7 @@
         {
           "location": {
             "x": 1669.6294481959417,
-            "y": 687.20908720690568
+            "y": 766.20453437124547
           },
           "nodeIndex": "Dim Vendor",
           "nodeLineageTag": "79673d71-375d-47ac-8529-bed504037b15",
@@ -167,7 +167,7 @@
         {
           "location": {
             "x": 1972.2302889670884,
-            "y": 533.54069322678845
+            "y": 612.53614039112824
           },
           "nodeIndex": "Fact AP Detail",
           "nodeLineageTag": "94f2551a-c9e5-4253-b80b-11ea0a4b7369",
@@ -176,6 +176,19 @@
             "width": 234
           },
           "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 728.14073839483615,
+            "y": 0
+          },
+          "nodeIndex": "Fact Inventory Value",
+          "nodeLineageTag": "fe8c2db6-5c1a-47f3-9e62-7eef2704c01e",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",

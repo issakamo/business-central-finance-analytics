@@ -122,7 +122,8 @@ table Date
 				                MIN ( 'Fact GL Actual'[postingDate] ),
 				                MIN ( 'Fact AP Detail'[postingDate] ),
 				                MIN ( 'Fact GL Budget'[budgetDate] ),
-				                MIN ( 'Fact AR Detail'[postingDate] )
+				                MIN ( 'Fact AR Detail'[postingDate] ),
+				                MIN ( 'Fact Inventory Value'[postingDate] )
 				            },
 				            [Value]
 				        )
@@ -135,7 +136,8 @@ table Date
 				                MAX ( 'Fact GL Actual'[postingDate] ),
 				                MAX ( 'Fact AP Detail'[postingDate] ),
 				                MAX ( 'Fact GL Budget'[budgetDate] ),
-				                MAX ( 'Fact AR Detail'[postingDate] )
+				                MAX ( 'Fact AR Detail'[postingDate] ),
+				                MAX ( 'Fact Inventory Value'[postingDate] )
 				            },
 				            [Value]
 				        )

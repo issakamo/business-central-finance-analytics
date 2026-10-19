@@ -46,6 +46,10 @@ relationship 62d8791f-b68e-4193-9d55-de30ca1ad0fa
 	fromColumn: 'Fact AP Detail'.vendorNo
 	toColumn: 'Dim Vendor'.vendorNo
 
+relationship b531e287-a9ec-a24c-6f4e-5f842fb6ba54
+	fromColumn: 'Fact Inventory Value'.itemNo
+	toColumn: 'Dim Item'.itemNo
+
 relationship 4364ee81-743e-3ad3-3d1f-72c4f4719ab8
 	fromColumn: 'Fact Sales'.postingDate
 	toColumn: Date.Date
@@ -64,5 +68,9 @@ relationship 40c972e2-8e08-3394-3aca-b6f32074eed9
 
 relationship 5752853f-9256-8289-1754-8932c5355c13
 	fromColumn: 'Fact AP Detail'.postingDate
+	toColumn: Date.Date
+
+relationship 2fb28d97-1ee0-c8b3-339e-e3b699e24868
+	fromColumn: 'Fact Inventory Value'.postingDate
 	toColumn: Date.Date
 

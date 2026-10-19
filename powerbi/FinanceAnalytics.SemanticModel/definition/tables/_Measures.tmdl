@@ -256,6 +256,75 @@ table _Measures
 		formatString: 0.0
 		lineageTag: d1098a97-525d-4f14-a5d7-7fb9bb0e340e
 
+	measure 'Inventory Value (Actual)' =
+			
+			VAR Cutoff = [Reporting Through]
+			VAR AsOf = MIN ( MAX ( 'Date'[Date] ), Cutoff )
+			RETURN
+			    IF (
+			        MIN ( 'Date'[Date] ) > Cutoff,
+			        BLANK (),
+			        CALCULATE (
+			            SUM ( 'Fact Inventory Value'[costAmountActual] ),
+			            REMOVEFILTERS ( 'Date' ),
+			            'Date'[Date] <= AsOf
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 454ccecc-eacf-4b1e-aaba-fd12e5fefd68
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Inventory Expected Cost' =
+			
+			VAR Cutoff = [Reporting Through]
+			VAR AsOf = MIN ( MAX ( 'Date'[Date] ), Cutoff )
+			RETURN
+			    IF (
+			        MIN ( 'Date'[Date] ) > Cutoff,
+			        BLANK (),
+			        CALCULATE (
+			            SUM ( 'Fact Inventory Value'[costAmountExpected] ),
+			            REMOVEFILTERS ( 'Date' ),
+			            'Date'[Date] <= AsOf
+			        )
+			    )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 4913d73d-2618-4c8f-8b64-3ba586179af1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Inventory Value' = [Inventory Value (Actual)] + [Inventory Expected Cost]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 2748dc9c-8496-409a-9ff9-cfd431363445
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure DIO =
+			
+			VAR Cutoff = [Reporting Through]
+			VAR AsOf = MIN ( MAX ( 'Date'[Date] ), Cutoff )
+			VAR WindowDays = 90
+			VAR COGSInWindow =
+			    CALCULATE (
+			        [COGS],
+			        REMOVEFILTERS ( 'Date' ),
+			        'Date'[Date] > AsOf - WindowDays,
+			        'Date'[Date] <= AsOf
+			    )
+			RETURN
+			    IF (
+			        MIN ( 'Date'[Date] ) > Cutoff,
+			        BLANK (),
+			        DIVIDE ( [Inventory Value], COGSInWindow ) * WindowDays
+			    )
+		formatString: 0.0
+		lineageTag: 545391ef-86e4-4571-9d39-ec727aca1f14
+
+	measure 'Cash Conversion Cycle' = [DSO] + [DIO] - [DPO]
+		formatString: 0.0
+		lineageTag: 5d128459-dacd-4681-a0c1-b23c7b0cadde
+
 	partition _Measures = m
 		mode: import
 		source =
