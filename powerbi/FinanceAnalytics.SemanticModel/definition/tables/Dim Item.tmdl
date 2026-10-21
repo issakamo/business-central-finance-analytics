@@ -68,9 +68,10 @@ table 'Dim Item'
 				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
 				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
 				    items_table = #"issakamo/financeAnalytics/v1.0"{[Name="items",Signature="table"]}[Data],
-				    #"Removed Columns" = Table.RemoveColumns(items_table,{"ETag"})
+				    #"Removed Columns" = Table.RemoveColumns(items_table,{"ETag"}),
+				    #"Category Labels" = Table.TransformColumns(#"Removed Columns", {{"itemCategoryCode", each if _ = null or Text.Trim(_) = "" then "(No category)" else _, type text}})
 				in
-				    #"Removed Columns"
+				    #"Category Labels"
 
 	annotation PBI_NavigationStepName = Navigation
 

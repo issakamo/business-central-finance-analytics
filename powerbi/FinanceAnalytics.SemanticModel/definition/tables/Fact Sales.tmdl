@@ -131,10 +131,9 @@ table 'Fact Sales'
 				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
 				    salesValueEntries_table = #"issakamo/financeAnalytics/v1.0"{[Name="salesValueEntries",Signature="table"]}[Data],
 				    #"Changed Type" = Table.TransformColumnTypes(salesValueEntries_table,{{"salesAmountActual", Currency.Type}, {"costAmountActual", Currency.Type}}),
-				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"ETag"}),
-				    #"Changed Type1" = Table.TransformColumnTypes(#"Removed Columns",{{"postingDate", type date}})
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"ETag"})
 				in
-				    #"Changed Type1"
+				    #"Removed Columns"
 
 	annotation PBI_NavigationStepName = Navigation
 

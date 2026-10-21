@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Cash Conversion Cycle",
-              "nativeQueryRef": "Cash Conversion Cycle"
+              "nativeQueryRef": "Cash Conversion Cycle",
+              "format": "#,0"
             }
           ]
         }
