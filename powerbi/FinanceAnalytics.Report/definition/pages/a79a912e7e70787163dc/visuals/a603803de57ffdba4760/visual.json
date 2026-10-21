@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 0,
-    "z": 1,
-    "height": 696,
+    "z": 0,
+    "height": 408,
     "width": 456,
-    "tabOrder": 1
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "pivotTable",
@@ -95,79 +95,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b91d4f5b54a857d0c69e",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Date"
-              }
-            },
-            "Property": "Year Month"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "872e6bf0de77142c76bc",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "AP Balance"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "fcaf9c17e83f9b5d5508",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Credit Purchases"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "0de81336ab0c848ef1a2",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "DPO"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f9729d84f1db76d6c135",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "COGS"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

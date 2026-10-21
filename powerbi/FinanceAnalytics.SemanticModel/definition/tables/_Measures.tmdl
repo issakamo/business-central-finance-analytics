@@ -325,6 +325,52 @@ table _Measures
 		formatString: 0.0
 		lineageTag: 5d128459-dacd-4681-a0c1-b23c7b0cadde
 
+	measure 'Sales YTD' = TOTALYTD ( [Sales Amount], 'Date'[Date] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 4399c9b8-c376-48aa-a7df-08635aed222a
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales PY YTD' = CALCULATE ( [Sales YTD], SAMEPERIODLASTYEAR ( 'Date'[Date] ) )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ed406ac3-b696-4f4f-ac3f-1cf11a6464a2
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Sales YTD vs PY %' = DIVIDE ( [Sales YTD] - [Sales PY YTD], [Sales PY YTD] )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 69d49646-3c51-4d35-a8d1-39b1ab351581
+
+	measure 'Sales YTD vs PY Label' =
+			
+			VAR Pct = [Sales YTD vs PY %]
+			RETURN
+			    IF (
+			        ISBLANK ( Pct ),
+			        BLANK (),
+			        IF ( Pct >= 0, "▲ ", "▼ " ) & FORMAT ( ABS ( Pct ), "0.0%" ) & " vs prior YTD"
+			    )
+		lineageTag: 5a0bb397-67fb-479d-9424-81ceb6ae7c9e
+
+	measure 'Gross Margin % YTD' = DIVIDE ( TOTALYTD ( [Gross Margin], 'Date'[Date] ), [Sales YTD] )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9959a9ad-6a65-4b8c-8b41-27c23b806ed0
+
+	measure 'GL Variance YTD' = TOTALYTD ( [GL Variance], 'Date'[Date] )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 20c95d95-3090-4000-ab34-c87cf274ca6e
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Report Subtitle' = "Reporting through " & FORMAT ( [Reporting Through], "mmmm d, yyyy" )
+		lineageTag: 528f787a-58de-444a-9547-e2ff573744eb
+
+	measure 'Variance Color' = IF ( [GL Variance YTD] < 0, "#C73E1D", "#3B8B5A" )
+		lineageTag: 30a60e47-dd3e-4134-8df5-4be6fcab3099
+
+	measure 'Sales vs PY Color' = IF ( [Sales YTD vs PY %] < 0, "#C73E1D", "#3B8B5A" )
+		lineageTag: 2f3ec955-2058-45f4-97a2-ac800f7160a8
+
 	partition _Measures = m
 		mode: import
 		source =

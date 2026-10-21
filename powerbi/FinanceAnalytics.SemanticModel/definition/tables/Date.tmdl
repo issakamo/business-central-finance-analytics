@@ -110,6 +110,18 @@ table Date
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Is Reporting Period' =
+			
+			VAR PeriodStart = DATE ( YEAR ( MIN ( 'Fact Sales'[postingDate] ) ), 1, 1 )
+			VAR PeriodEnd = EOMONTH ( MAX ( 'Fact Sales'[postingDate] ), -1 )
+			RETURN
+			    'Date'[Date] >= PeriodStart && 'Date'[Date] <= PeriodEnd
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9c443b19-69a2-4b47-8a76-695ee5450446
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
 	partition Date = calculated
 		mode: import
 		source =

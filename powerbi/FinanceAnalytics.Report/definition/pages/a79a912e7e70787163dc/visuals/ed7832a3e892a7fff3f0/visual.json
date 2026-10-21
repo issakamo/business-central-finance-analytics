@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "ed7832a3e892a7fff3f0",
   "position": {
-    "x": 504,
-    "y": 216,
-    "z": 2,
-    "height": 336,
-    "width": 552,
-    "tabOrder": 2
+    "x": 1392,
+    "y": 816,
+    "z": 1000,
+    "height": 264,
+    "width": 528,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -72,51 +72,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ad9015ff309ab405798f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Date"
-              }
-            },
-            "Property": "Year Month"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "a702b0094c700b46ceca",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Aging Bucket"
-              }
-            },
-            "Property": "Bucket"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1a397a8f0d26d91612fd",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "AP Aged Balance"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
