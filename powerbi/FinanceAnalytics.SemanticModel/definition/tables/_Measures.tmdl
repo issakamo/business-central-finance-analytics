@@ -398,6 +398,16 @@ table _Measures
 	measure 'Variance Cell Color' = IF ( [GL Variance] < 0, "#C73E1D", "#3B8B5A" )
 		lineageTag: 6d962eae-b032-4fb8-a630-2af314a5fd9d
 
+	measure 'AR Overdue' = CALCULATE ( [AR Aged Balance], 'Aging Bucket'[Bucket] <> "Current" )
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: c5279d49-b633-4124-814e-2c77a707252c
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'AR Overdue %' = DIVIDE ( [AR Overdue], [AR Balance] )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 883fce39-7b14-4517-9b76-108e100b26f9
+
 	partition _Measures = m
 		mode: import
 		source =

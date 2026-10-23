@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "f8d507527045d6cc4fcf",
+  "position": {
+    "x": 600,
+    "y": 1032,
+    "z": 7003,
+    "height": 48,
+    "width": 888,
+    "tabOrder": 7003
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "AR was $0 at every 2025 month-end (each invoice was settled within its month), so aging and DSO only show activity from January 2026."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
