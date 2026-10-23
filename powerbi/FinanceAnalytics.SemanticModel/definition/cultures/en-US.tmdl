@@ -3713,6 +3713,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.468
 			          }
+			        },
+			        {
+			          "Received, Not Invoiced": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -3850,6 +3860,16 @@ cultureInfo en-US
 			        {
 			          "dio": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Days of Stock": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14841,6 +14861,270 @@ cultureInfo en-US
 			    }
 			  },
 			  "Relationships": {
+			    "fact_AR_detail_due_date_date_hierarchy_has_fact_AR_detail_due_date_month": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact AR Detail"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_AR_detail.due_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.due_date.date_hierarchy"
+			          }
+			        },
+			        "fact_AR_detail.due_date.month": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.due_date.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_AR_detail.due_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_AR_detail.due_date.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "due_date_hierarchy_have_due_month"
+			        }
+			      ]
+			    },
+			    "fact_AR_detail_due_date_date_hierarchy_has_fact_AR_detail_due_date_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact AR Detail"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_AR_detail.due_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.due_date.date_hierarchy"
+			          }
+			        },
+			        "fact_AR_detail.due_date.quarter": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.due_date.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_AR_detail.due_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_AR_detail.due_date.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "due_date_hierarchy_have_due_quarter"
+			        }
+			      ]
+			    },
+			    "fact_AR_detail_due_date_date_hierarchy_has_fact_AR_detail_due_date_year": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact AR Detail"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_AR_detail.due_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.due_date.date_hierarchy"
+			          }
+			        },
+			        "fact_AR_detail.due_date.year": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.due_date.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_AR_detail.due_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_AR_detail.due_date.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "due_date_hierarchy_have_due_year"
+			        }
+			      ]
+			    },
+			    "fact_AR_detail_due_date_has_date_hierarchy": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact AR Detail"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_AR_detail.due_date": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.due_date"
+			          }
+			        },
+			        "fact_AR_detail.due_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.due_date.date_hierarchy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_AR_detail.due_date"
+			            },
+			            "Object": {
+			              "Role": "fact_AR_detail.due_date.date_hierarchy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "due_date_have_due_date_hierarchy"
+			        }
+			      ]
+			    },
+			    "fact_AR_detail_document_posting_date_date_hierarchy_has_fact_AR_detail_document_posting_date_day": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact AR Detail"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_AR_detail.document_posting_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.document_posting_date.date_hierarchy"
+			          }
+			        },
+			        "fact_AR_detail.document_posting_date.day": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.document_posting_date.day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_AR_detail.document_posting_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_AR_detail.document_posting_date.day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "document_posting_date_hierarchies_have_document_posting_days"
+			        }
+			      ]
+			    },
+			    "fact_AR_detail_document_posting_date_date_hierarchy_has_fact_AR_detail_document_posting_date_month": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact AR Detail"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_AR_detail.document_posting_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.document_posting_date.date_hierarchy"
+			          }
+			        },
+			        "fact_AR_detail.document_posting_date.month": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.document_posting_date.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_AR_detail.document_posting_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_AR_detail.document_posting_date.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "document_posting_date_hierarchies_have_document_posting_months"
+			        }
+			      ]
+			    },
+			    "fact_AR_detail_document_posting_date_date_hierarchy_has_fact_AR_detail_document_posting_date_quarter": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact AR Detail"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_AR_detail.document_posting_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.document_posting_date.date_hierarchy"
+			          }
+			        },
+			        "fact_AR_detail.document_posting_date.quarter": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.document_posting_date.quarter"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_AR_detail.document_posting_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_AR_detail.document_posting_date.quarter"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "document_posting_date_hierarchies_have_document_posting_quarters"
+			        }
+			      ]
+			    },
+			    "fact_AR_detail_document_posting_date_date_hierarchy_has_fact_AR_detail_document_posting_date_year": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact AR Detail"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_AR_detail.document_posting_date.date_hierarchy": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.document_posting_date.date_hierarchy"
+			          }
+			        },
+			        "fact_AR_detail.document_posting_date.year": {
+			          "Target": {
+			            "Entity": "fact_AR_detail.document_posting_date.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_AR_detail.document_posting_date.date_hierarchy"
+			            },
+			            "Object": {
+			              "Role": "fact_AR_detail.document_posting_date.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "document_posting_date_hierarchies_have_document_posting_years"
+			        }
+			      ]
+			    },
 			    "fact_AR_detail_document_posting_date_has_date_hierarchy": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact AR Detail"
@@ -22603,270 +22887,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "some_dim_items_are_blocked_dim_items"
-			        }
-			      ]
-			    },
-			    "fact_AR_detail_document_posting_date_date_hierarchy_has_fact_AR_detail_document_posting_date_year": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact AR Detail"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_AR_detail.document_posting_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.document_posting_date.date_hierarchy"
-			          }
-			        },
-			        "fact_AR_detail.document_posting_date.year": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.document_posting_date.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_AR_detail.document_posting_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "fact_AR_detail.document_posting_date.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "document_posting_date_hierarchies_have_document_posting_years"
-			        }
-			      ]
-			    },
-			    "fact_AR_detail_document_posting_date_date_hierarchy_has_fact_AR_detail_document_posting_date_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact AR Detail"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_AR_detail.document_posting_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.document_posting_date.date_hierarchy"
-			          }
-			        },
-			        "fact_AR_detail.document_posting_date.quarter": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.document_posting_date.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_AR_detail.document_posting_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "fact_AR_detail.document_posting_date.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "document_posting_date_hierarchies_have_document_posting_quarters"
-			        }
-			      ]
-			    },
-			    "fact_AR_detail_document_posting_date_date_hierarchy_has_fact_AR_detail_document_posting_date_month": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact AR Detail"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_AR_detail.document_posting_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.document_posting_date.date_hierarchy"
-			          }
-			        },
-			        "fact_AR_detail.document_posting_date.month": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.document_posting_date.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_AR_detail.document_posting_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "fact_AR_detail.document_posting_date.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "document_posting_date_hierarchies_have_document_posting_months"
-			        }
-			      ]
-			    },
-			    "fact_AR_detail_document_posting_date_date_hierarchy_has_fact_AR_detail_document_posting_date_day": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact AR Detail"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_AR_detail.document_posting_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.document_posting_date.date_hierarchy"
-			          }
-			        },
-			        "fact_AR_detail.document_posting_date.day": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.document_posting_date.day"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_AR_detail.document_posting_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "fact_AR_detail.document_posting_date.day"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "document_posting_date_hierarchies_have_document_posting_days"
-			        }
-			      ]
-			    },
-			    "fact_AR_detail_due_date_has_date_hierarchy": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact AR Detail"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_AR_detail.due_date": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.due_date"
-			          }
-			        },
-			        "fact_AR_detail.due_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.due_date.date_hierarchy"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_AR_detail.due_date"
-			            },
-			            "Object": {
-			              "Role": "fact_AR_detail.due_date.date_hierarchy"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "due_date_have_due_date_hierarchy"
-			        }
-			      ]
-			    },
-			    "fact_AR_detail_due_date_date_hierarchy_has_fact_AR_detail_due_date_year": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact AR Detail"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_AR_detail.due_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.due_date.date_hierarchy"
-			          }
-			        },
-			        "fact_AR_detail.due_date.year": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.due_date.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_AR_detail.due_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "fact_AR_detail.due_date.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "due_date_hierarchy_have_due_year"
-			        }
-			      ]
-			    },
-			    "fact_AR_detail_due_date_date_hierarchy_has_fact_AR_detail_due_date_quarter": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact AR Detail"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_AR_detail.due_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.due_date.date_hierarchy"
-			          }
-			        },
-			        "fact_AR_detail.due_date.quarter": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.due_date.quarter"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_AR_detail.due_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "fact_AR_detail.due_date.quarter"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "due_date_hierarchy_have_due_quarter"
-			        }
-			      ]
-			    },
-			    "fact_AR_detail_due_date_date_hierarchy_has_fact_AR_detail_due_date_month": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact AR Detail"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_AR_detail.due_date.date_hierarchy": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.due_date.date_hierarchy"
-			          }
-			        },
-			        "fact_AR_detail.due_date.month": {
-			          "Target": {
-			            "Entity": "fact_AR_detail.due_date.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_AR_detail.due_date.date_hierarchy"
-			            },
-			            "Object": {
-			              "Role": "fact_AR_detail.due_date.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "due_date_hierarchy_have_due_month"
 			        }
 			      ]
 			    },

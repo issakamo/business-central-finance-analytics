@@ -226,51 +226,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "46e0ff1bdb3f6e3dafc0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Date"
-              }
-            },
-            "Property": "Year Month"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "e6987cd111b9de16461b",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "AR Aged Balance"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5d48d07e2247db48df30",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Aging Bucket"
-              }
-            },
-            "Property": "Bucket"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

@@ -92,23 +92,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "4354d99ecce3f95a3fce",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "DSO"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -4,10 +4,10 @@
   "position": {
     "x": 1104,
     "y": 336,
-    "z": 7001,
+    "z": 8000,
     "height": 432,
     "width": 816,
-    "tabOrder": 7001
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -86,51 +86,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "b3b2797ccb8c9bb921a5",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Date"
-              }
-            },
-            "Property": "Year Month"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1f0001c883c94392994c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "AR Balance"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "4bb92525038ae490fb73",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "DSO"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }
