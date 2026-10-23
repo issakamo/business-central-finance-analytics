@@ -1,0 +1,15 @@
+role Sales
+	modelPermission: read
+
+	tablePermission 'Dim Salesperson' = [email] = USERPRINCIPALNAME ()
+
+	tablePermission 'Fact AP Detail' = FALSE ()
+
+	tablePermission 'Fact GL Actual' = FALSE ()
+
+	tablePermission 'Fact GL Budget' = FALSE ()
+
+	tablePermission 'Fact Inventory Value' = FALSE ()
+
+	annotation PBI_Id = 2b25a81a74c6447c8d15991edab8b8a9
+

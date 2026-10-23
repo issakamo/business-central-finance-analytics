@@ -109,23 +109,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "1cc88068e89b0b883caa",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Cash Conversion Cycle"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

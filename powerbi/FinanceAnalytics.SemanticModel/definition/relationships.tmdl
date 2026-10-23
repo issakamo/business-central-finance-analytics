@@ -78,3 +78,7 @@ relationship e26ec47e-dfe0-1894-a1a0-8c5f1c0fa68d
 	fromColumn: 'Fact GL Budget'.budgetName
 	toColumn: 'Dim Budget'.budgetName
 
+relationship b5818994-02e8-9b44-f584-e6bc71f28238
+	fromColumn: 'Fact AR Detail'.salespersonCode
+	toColumn: 'Dim Salesperson'.salespersonCode
+

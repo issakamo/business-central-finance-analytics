@@ -1,0 +1,7 @@
+role Finance
+	modelPermission: read
+
+	tablePermission 'Dim Salesperson'
+
+	annotation PBI_Id = ac846f96cfac4801a5ec9759bd90f686
+

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "0ee2c7c801c9e769f431",
   "position": {
-    "x": 0,
-    "y": 0,
+    "x": 768,
+    "y": 96,
     "z": 11000,
-    "height": 64,
-    "width": 832,
+    "height": 160,
+    "width": 352,
     "tabOrder": 11000
   },
   "visual": {
@@ -19,7 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Cash conversion cycle = DSO + DIO − DPO. Inventory dominates: opening stock of about 500 units per item (posted 6/1/2025) is several years of supply at current sales. DIO and DPO use COGS in the trailing 90 days."
+                    "value": "Cash conversion cycle = DSO + DIO − DPO. Inventory dominates: opening stock of about 500 units per item (posted 6/1/2025) is several years of supply at current sales. DIO and DPO use COGS in the trailing 90 days.",
+                    "textStyle": {
+                      "fontSize": "14pt"
+                    }
                   }
                 ]
               }

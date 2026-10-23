@@ -39,8 +39,11 @@ table _Measures
 
 	measure 'Reporting Through' =
 			
-			VAR LastSale = CALCULATE ( MAX ( 'Fact Sales'[postingDate] ), REMOVEFILTERS () )
-			RETURN EOMONTH ( LastSale, -1 )
+			CALCULATE (
+			    MAX ( 'Date'[Date] ),
+			    REMOVEFILTERS ( 'Date' ),
+			    'Date'[Is Reporting Period] = TRUE ()
+			)
 		formatString: m/d/yyyy
 		lineageTag: d1d9e320-f080-4640-bc43-3d081b53fdfe
 
@@ -336,7 +339,12 @@ table _Measures
 		formatString: 0.0
 		lineageTag: 545391ef-86e4-4571-9d39-ec727aca1f14
 
-	measure 'Cash Conversion Cycle' = [DSO] + [DIO] - [DPO]
+	measure 'Cash Conversion Cycle' =
+			
+			IF (
+			    NOT ISBLANK ( [DIO] ) && NOT ISBLANK ( [DPO] ),
+			    [DSO] + [DIO] - [DPO]
+			)
 		formatString: 0.0
 		lineageTag: 5d128459-dacd-4681-a0c1-b23c7b0cadde
 
@@ -380,10 +388,16 @@ table _Measures
 	measure 'Report Subtitle' = "Reporting through " & FORMAT ( [Reporting Through], "mmmm d, yyyy" )
 		lineageTag: 528f787a-58de-444a-9547-e2ff573744eb
 
-	measure 'Variance Color' = IF ( [GL Variance YTD] < 0, "#C73E1D", "#3B8B5A" )
+	measure 'Variance Color' =
+			
+			VAR v = [GL Variance YTD]
+			RETURN IF ( NOT ISBLANK ( v ), IF ( v < 0, "#C73E1D", "#3B8B5A" ) )
 		lineageTag: 30a60e47-dd3e-4134-8df5-4be6fcab3099
 
-	measure 'Sales vs PY Color' = IF ( [Sales YTD vs PY %] < 0, "#C73E1D", "#3B8B5A" )
+	measure 'Sales vs PY Color' =
+			
+			VAR v = [Sales YTD vs PY %]
+			RETURN IF ( NOT ISBLANK ( v ), IF ( v < 0, "#C73E1D", "#3B8B5A" ) )
 		lineageTag: 2f3ec955-2058-45f4-97a2-ac800f7160a8
 
 	measure 'Budget Selection Label' =
@@ -395,7 +409,10 @@ table _Measures
 			)
 		lineageTag: 284801ac-1877-4e5a-a2cd-02f293706a2b
 
-	measure 'Variance Cell Color' = IF ( [GL Variance] < 0, "#C73E1D", "#3B8B5A" )
+	measure 'Variance Cell Color' =
+			
+			VAR v = [GL Variance]
+			RETURN IF ( NOT ISBLANK ( v ), IF ( v < 0, "#C73E1D", "#3B8B5A" ) )
 		lineageTag: 6d962eae-b032-4fb8-a630-2af314a5fd9d
 
 	measure 'AR Overdue' = CALCULATE ( [AR Aged Balance], 'Aging Bucket'[Bucket] <> "Current" )
@@ -407,6 +424,24 @@ table _Measures
 	measure 'AR Overdue %' = DIVIDE ( [AR Overdue], [AR Balance] )
 		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: 883fce39-7b14-4517-9b76-108e100b26f9
+
+	measure 'Finance Access Note' =
+			
+			IF (
+			    ISEMPTY ( 'Fact GL Actual' ),
+			    "Budget and P&L figures are available to the Finance role only.",
+			    ""
+			)
+		lineageTag: af702a74-8aed-4dce-ac0d-e9487cafe734
+
+	measure 'Working Capital Access Note' =
+			
+			IF (
+			    ISEMPTY ( 'Fact Inventory Value' ),
+			    "Inventory, payables and cash-cycle figures are available to the Finance role only. Your DSO reflects your own invoices.",
+			    ""
+			)
+		lineageTag: 9f2e8d7e-e140-4f7f-a132-dd15490ceaee
 
 	partition _Measures = m
 		mode: import

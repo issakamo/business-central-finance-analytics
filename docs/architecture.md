@@ -9,3 +9,12 @@
 - **Inventory valuation.** Inventory Value = actual cost + expected cost (received, not invoiced), matching BC's Inventory Valuation report to the cent at 08/31/26 ($2,217,816.00 actual + $150,495.00 expected = $2,368,311.00). The $150,495.00 of expected cost (coffee beans and grinders) already existed in January 2025, meaning those receipts were still not invoiced 20 months later.
 - **Working capital.** DIO and DPO both use COGS in the trailing 90 days (purchases were too lumpy: one $204K batch in March 2026, then almost nothing). DIO is about 2,900 days at Aug 2026 because of the opening stock posted on 6/1/2025; it dominates the cash conversion cycle.
 - **Zero-cost bundles.** Items 1925-W/1929-W/1953-W/1965-W/1969-W carry $0 cost; three were sold ($29,004.20 of revenue) at 100% margin, which lifts Gross Margin % above the ~22% earned on regular items (notably in Jan 2026).
+
+
+
+
+## Security and deployment design
+
+- **Roles:** Finance (no filters) and Sales (Dim Salesperson[email] = USERPRINCIPALNAME(); finance-only facts filtered with FALSE()). Sales and AR follow the invoice's salesperson, not the customer's default.
+- **Restricted pages** show an explanatory message for the Sales role instead of silently empty visuals.
+- **Deployment (planned):** one published semantic model with two thin reports. The Finance report has all pages; the Sales report has Revenue & Margin and Receivables. Each is distributed through a Power BI app audience. Not built, as it requires a Power BI Pro license.

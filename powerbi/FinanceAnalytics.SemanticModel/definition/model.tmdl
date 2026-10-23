@@ -34,5 +34,8 @@ ref table 'Dim Vendor'
 ref table 'Fact Inventory Value'
 ref table 'Dim Budget'
 
+ref role Finance
+ref role Sales
+
 ref cultureInfo en-US
 
