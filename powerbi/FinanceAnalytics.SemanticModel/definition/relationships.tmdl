@@ -74,3 +74,7 @@ relationship 2fb28d97-1ee0-c8b3-339e-e3b699e24868
 	fromColumn: 'Fact Inventory Value'.postingDate
 	toColumn: Date.Date
 
+relationship e26ec47e-dfe0-1894-a1a0-8c5f1c0fa68d
+	fromColumn: 'Fact GL Budget'.budgetName
+	toColumn: 'Dim Budget'.budgetName
+

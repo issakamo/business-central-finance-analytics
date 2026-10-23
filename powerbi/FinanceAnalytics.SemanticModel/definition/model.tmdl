@@ -9,7 +9,7 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBI_QueryOrder = ["Fact Sales","_Measures","Dim Customer","Dim Item","Dim Salesperson","Dim GL Account","Fact GL Actual","Fact GL Budget","Fact AR Detail","Fact AP Detail","Dim Vendor","Fact Inventory Value"]
+annotation PBI_QueryOrder = ["Fact Sales","_Measures","Dim Customer","Dim Item","Dim Salesperson","Dim GL Account","Fact GL Actual","Fact GL Budget","Fact AR Detail","Fact AP Detail","Dim Vendor","Fact Inventory Value","Dim Budget"]
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -32,6 +32,7 @@ ref table LocalDateTable_ba4904cd-6a0b-4816-896f-323fe0e4c0f3
 ref table LocalDateTable_58e486c9-7ac6-4dcf-bd62-4175fae465f2
 ref table 'Dim Vendor'
 ref table 'Fact Inventory Value'
+ref table 'Dim Budget'
 
 ref cultureInfo en-US
 

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "05fa60caf31da35e8cc2",
+  "position": {
+    "x": 0,
+    "y": 72,
+    "z": 4000,
+    "height": 72,
+    "width": 696,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Budget Selection Label"
+                }
+              },
+              "queryRef": "_Measures.Budget Selection Label",
+              "nativeQueryRef": "Budget Selection Label"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Budget Selection Label"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

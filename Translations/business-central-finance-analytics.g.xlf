@@ -33,6 +33,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Query FNX GL Budget API - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Query 2599218854 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Budget Names API</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Query FNX GL Budget Names API - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Query 2592681395 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inventory Value Entries API</source>
           <note from="Developer" annotates="general" priority="2"></note>

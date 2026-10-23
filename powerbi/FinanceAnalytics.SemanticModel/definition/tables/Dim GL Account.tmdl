@@ -30,6 +30,9 @@ table 'Dim GL Account'
 		lineageTag: 873c8b62-5908-4ceb-bf76-c9fbdd8af6dc
 		summarizeBy: none
 		sourceColumn: accountCategory
+		sortByColumn: 'Category Sort'
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 
@@ -39,6 +42,15 @@ table 'Dim GL Account'
 		lineageTag: 99d43894-fa69-4ef9-8797-46a4fb677285
 		summarizeBy: none
 		sourceColumn: blocked
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Sort'
+		dataType: int64
+		formatString: 0
+		lineageTag: ce4c1a4b-ad85-4edf-bfdb-2563c6456cb8
+		summarizeBy: sum
+		sourceColumn: Category Sort
 
 		annotation SummarizationSetBy = Automatic
 
@@ -52,9 +64,14 @@ table 'Dim GL Account'
 				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
 				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
 				    glAccounts_table = #"issakamo/financeAnalytics/v1.0"{[Name="glAccounts",Signature="table"]}[Data],
-				    #"Removed Columns" = Table.RemoveColumns(glAccounts_table,{"ETag"})
+				    #"Removed Columns" = Table.RemoveColumns(glAccounts_table,{"ETag"}),
+				    #"Added Custom" = Table.AddColumn(#"Removed Columns", "Category Sort", each if [accountCategory] = "Income" then 1
+				else if [accountCategory] = "Cost of Goods Sold" then 2
+				else if [accountCategory] = "Expense" then 3
+				else 9),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom",{{"Category Sort", Int64.Type}})
 				in
-				    #"Removed Columns"
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 

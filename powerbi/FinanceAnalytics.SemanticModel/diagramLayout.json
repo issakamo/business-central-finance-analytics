@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 482.6679853346883,
-        "y": 219.39452489489929
+        "x": 766.9269733334238,
+        "y": 743.07971246515342
       },
       "nodes": [
         {
@@ -140,8 +140,8 @@
         },
         {
           "location": {
-            "x": 2122.4361706374552,
-            "y": 389.53899370791282
+            "x": 1711.7868397667598,
+            "y": 1181.2670589591417
           },
           "nodeIndex": "Aging Bucket",
           "nodeLineageTag": "b17a14f1-2c50-4ec1-8475-033bb275d84e",
@@ -186,6 +186,19 @@
           "nodeLineageTag": "fe8c2db6-5c1a-47f3-9e62-7eef2704c01e",
           "size": {
             "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1320.5059752605775,
+            "y": 941.58579504637657
+          },
+          "nodeIndex": "Dim Budget",
+          "nodeLineageTag": "bc2de1d7-3c44-4262-90ef-a0fb35aa3e68",
+          "size": {
+            "height": 152,
             "width": 234
           },
           "zIndex": 0

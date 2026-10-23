@@ -2953,6 +2953,16 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.739
 			          }
+			        },
+			        {
+			          "Variance %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -4921,16 +4931,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "label": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
 			          "tag": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -5589,12 +5589,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "item": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
 			          "dim product": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -5622,36 +5616,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "product": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "element": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
-			          }
-			        },
-			        {
-			          "entry": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.736
 			          }
 			        },
 			        {
@@ -6666,16 +6630,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "label": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
 			          "tag": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -6935,7 +6889,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "label": {
+			          "tag": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -6945,13 +6899,13 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "tag": {
-			            "Type": "Noun",
+			          "Account Name": {
 			            "State": "Suggested",
 			            "Source": {
-			              "Agent": "Thesaurus"
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
 			            },
-			            "Weight": 0.714
+			            "Weight": 0.9
 			          }
 			        }
 			      ],
@@ -8022,6 +7976,9 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
 			      "Terms": [
 			        {
 			          "budget name": {
@@ -8073,16 +8030,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "account name": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.582
 			          }
 			        },
 			        {
@@ -12542,16 +12489,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "label": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.714
-			          }
-			        },
-			        {
 			          "tag": {
 			            "Type": "Noun",
 			            "State": "Suggested",
@@ -14177,6 +14114,678 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "entity__measure.budget_selection_label": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Budget Selection Label"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "budget selection label": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "label": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "selection label": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "budget selection sticker": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "selection sticker": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "budget selection tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "budget selection decal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "sticker": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "selection tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "selection decal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "decal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "budget selection name tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.604
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.variance_cell_color": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Variance Cell Color"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "variance cell color": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "color": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "cell color": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "variance cell hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "cell hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "variance cell tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "variance cell shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "variance cell dye": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "variance cell paint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "variance cell pigment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "hue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "cell tint": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "cell shade": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "dim_GL_account.category_sort": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim GL Account",
+			          "ConceptualProperty": "Category Sort"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "category sort": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "classification sort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "class sort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "group sort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "type sort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "grouping sort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "kind sort": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "category category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "category genus": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "category species": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "category variety": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        }
+			      ]
+			    },
+			    "dim_budget": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim Budget"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dim budget": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dim account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "dim cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "dim finance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "dim_budget.budget_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim Budget",
+			          "ConceptualProperty": "budgetName"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "budget name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "budgetName": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "budget nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "budget title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "budget label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "budget tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "cost name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "finance name": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dim_budget.description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim Budget",
+			          "ConceptualProperty": "description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "description": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "appearance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "descriptor": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "explanation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "specification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "overview": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "report": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "dim_budget.blocked": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim Budget",
+			          "ConceptualProperty": "blocked"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "blocked": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "congested": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "impassable": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "jammed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "gridlocked": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "choked": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "unnavigable": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "obstructed": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "clogged": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -14773,6 +15382,52 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "fact_GL_budget_has_dim_budget": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact GL Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_GL_budget": {
+			          "Target": {
+			            "Entity": "fact_GL_budget"
+			          }
+			        },
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_GL_budget"
+			            },
+			            "Object": {
+			              "Role": "dim_budget"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_GL_budgets_have_dim_budgets"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "fact_GL_budget"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_fact_GL_budgets"
+			        }
+			      ]
+			    },
 			    "fact_GL_budget_has_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact GL Budget"
@@ -15138,6 +15793,270 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_items_have_fact_sales"
+			        }
+			      ]
+			    },
+			    "dim_budget_has_blocked": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "dim_budget.blocked": {
+			          "Target": {
+			            "Entity": "dim_budget.blocked"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "dim_budget.blocked"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_blocked"
+			        }
+			      ]
+			    },
+			    "dim_budget_has_description": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "dim_budget.description": {
+			          "Target": {
+			            "Entity": "dim_budget.description"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "dim_budget.description"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_descriptions"
+			        }
+			      ]
+			    },
+			    "dim_budget_has_budget_name": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "dim_budget.budget_name": {
+			          "Target": {
+			            "Entity": "dim_budget.budget_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "dim_budget.budget_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_budget_names"
+			        }
+			      ]
+			    },
+			    "dim_GL_account_has_category_sort": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim GL Account"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_GL_account": {
+			          "Target": {
+			            "Entity": "dim_GL_account"
+			          }
+			        },
+			        "dim_GL_account.category_sort": {
+			          "Target": {
+			            "Entity": "dim_GL_account.category_sort"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_GL_account"
+			            },
+			            "Object": {
+			              "Role": "dim_GL_account.category_sort"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_GL_accounts_have_category_sorts"
+			        }
+			      ]
+			    },
+			    "fact_GL_budget_has_entity__measure_variance_cell_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact GL Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_GL_budget": {
+			          "Target": {
+			            "Entity": "fact_GL_budget"
+			          }
+			        },
+			        "entity__measure.variance_cell_color": {
+			          "Target": {
+			            "Entity": "entity__measure.variance_cell_color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_GL_budget"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.variance_cell_color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_GL_budgets_have_variance_cell_color"
+			        }
+			      ]
+			    },
+			    "fact_GL_actual_has_entity__measure_variance_cell_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact GL Actual"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_GL_actual": {
+			          "Target": {
+			            "Entity": "fact_GL_actual"
+			          }
+			        },
+			        "entity__measure.variance_cell_color": {
+			          "Target": {
+			            "Entity": "entity__measure.variance_cell_color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_GL_actual"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.variance_cell_color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_GL_actuals_have_variance_cell_color"
+			        }
+			      ]
+			    },
+			    "dim_budget_has_entity__measure_variance_cell_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "entity__measure.variance_cell_color": {
+			          "Target": {
+			            "Entity": "entity__measure.variance_cell_color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.variance_cell_color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_variance_cell_color"
+			        }
+			      ]
+			    },
+			    "dim_budget_has_entity__measure_budget_selection_label": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "entity__measure.budget_selection_label": {
+			          "Target": {
+			            "Entity": "entity__measure.budget_selection_label"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.budget_selection_label"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_budget_selection_label"
 			        }
 			      ]
 			    },
@@ -16648,39 +17567,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "fact_GL_budget_has_budget_name": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact GL Budget"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_GL_budget": {
-			          "Target": {
-			            "Entity": "fact_GL_budget"
-			          }
-			        },
-			        "fact_GL_budget.budget_name": {
-			          "Target": {
-			            "Entity": "fact_GL_budget.budget_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_GL_budget"
-			            },
-			            "Object": {
-			              "Role": "fact_GL_budget.budget_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_GL_budgets_have_budget_names"
-			        }
-			      ]
-			    },
 			    "fact_GL_budget_has_entry_no": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact GL Budget"
@@ -17981,6 +18867,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_budget_has_entity__measure_variance_color": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "entity__measure.variance_color": {
+			          "Target": {
+			            "Entity": "entity__measure.variance_color"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.variance_color"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_variance_color"
+			        }
+			      ]
+			    },
 			    "date_has_entity__measure_variance_color": {
 			      "Binding": {
 			        "ConceptualEntity": "Date"
@@ -18110,6 +19029,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_GL_actuals_have_GL_variance_YTD"
+			        }
+			      ]
+			    },
+			    "dim_budget_has_entity__measure_GL_variance_YTD": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "entity__measure.GL_variance_YTD": {
+			          "Target": {
+			            "Entity": "entity__measure.GL_variance_YTD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.GL_variance_YTD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_GL_variance_YTD"
 			        }
 			      ]
 			    },
@@ -19829,6 +20781,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_budget_has_entity__measure_GL_variance_": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "entity__measure.GL_variance_": {
+			          "Target": {
+			            "Entity": "entity__measure.GL_variance_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.GL_variance_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_GL_variance_"
+			        }
+			      ]
+			    },
 			    "fact_GL_budget_has_entity__measure_GL_variance": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact GL Budget"
@@ -19895,6 +20880,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_budget_has_entity__measure_GL_variance": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "entity__measure.GL_variance": {
+			          "Target": {
+			            "Entity": "entity__measure.GL_variance"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.GL_variance"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_GL_variance"
+			        }
+			      ]
+			    },
 			    "fact_GL_budget_has_entity__measure_GL_budget_full_year": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact GL Budget"
@@ -19925,6 +20943,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "fact_GL_budgets_have_GL_budget_full_year"
+			        }
+			      ]
+			    },
+			    "dim_budget_has_entity__measure_GL_budget_full_year": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "entity__measure.GL_budget_full_year": {
+			          "Target": {
+			            "Entity": "entity__measure.GL_budget_full_year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.GL_budget_full_year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_GL_budget_full_year"
 			        }
 			      ]
 			    },
@@ -20720,6 +21771,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_budget_has_entity__measure_GL_budget": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "entity__measure.GL_budget": {
+			          "Target": {
+			            "Entity": "entity__measure.GL_budget"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.GL_budget"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_budgets_have_GL_budget"
+			        }
+			      ]
+			    },
 			    "fact_GL_actual_has_entity__measure_GL_actual": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact GL Actual"
@@ -21317,6 +22401,56 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "fact_sales_are_posted_on_posting_dates"
+			        }
+			      ]
+			    },
+			    "dim_budget_is_blocked": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Budget"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_budget": {
+			          "Target": {
+			            "Entity": "dim_budget"
+			          }
+			        },
+			        "dim_budget.blocked": {
+			          "Target": {
+			            "Entity": "dim_budget.blocked"
+			          }
+			        }
+			      },
+			      "Conditions": [
+			        {
+			          "Target": {
+			            "Role": "dim_budget.blocked"
+			          },
+			          "Operator": "Equals",
+			          "Value": {
+			            "Boolean": [
+			              true
+			            ]
+			          }
+			        }
+			      ],
+			      "Phrasings": [
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "dim_budget"
+			            },
+			            "Adjectives": [
+			              {
+			                "blocked": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ]
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "some_dim_budgets_are_blocked_dim_budgets"
 			        }
 			      ]
 			    },

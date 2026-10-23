@@ -1,0 +1,46 @@
+table 'Dim Budget'
+	lineageTag: bc2de1d7-3c44-4262-90ef-a0fb35aa3e68
+
+	column budgetName
+		dataType: string
+		lineageTag: 25357c77-2622-4a11-8309-381983df4494
+		summarizeBy: none
+		sourceColumn: budgetName
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 8e214c65-6713-4d6d-b561-6fb0f7517d22
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column blocked
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 691955d6-6a9d-4616-bcaa-4675c158cbf5
+		summarizeBy: none
+		sourceColumn: blocked
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Budget' = m
+		mode: import
+		source =
+				let
+				    Source = Dynamics365BusinessCentral.ApiContentsWithOptions(null, null, null, null),
+				    DEV = Source{[Name="DEV"]}[Data],
+				    #"CRONUS USA, Inc." = DEV{[Name="CRONUS USA, Inc."]}[Data],
+				    Advanced = #"CRONUS USA, Inc."{[Name="Advanced"]}[Data],
+				    #"issakamo/financeAnalytics/v1.0" = Advanced{[Name="issakamo/financeAnalytics/v1.0"]}[Data],
+				    glBudgetNames_table = #"issakamo/financeAnalytics/v1.0"{[Name="glBudgetNames",Signature="table"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(glBudgetNames_table,{"ETag"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

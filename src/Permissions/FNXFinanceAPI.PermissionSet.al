@@ -28,6 +28,7 @@ permissionset 53100 "FNX FINANCE API"
         query "FNX Vendors API" = X,
         query "FNX AP Detail API" = X,
         query "FNX Inventory Value API" = X,
+        query "FNX GL Budget Names API" = X,
         tabledata "Value Entry" = R,
         tabledata Customer = R,
         tabledata Item = R,
@@ -39,5 +40,6 @@ permissionset 53100 "FNX FINANCE API"
         tabledata "Detailed Cust. Ledg. Entry" = R,
         tabledata Vendor = R,
         tabledata "Vendor Ledger Entry" = R,
-        tabledata "Detailed Vendor Ledg. Entry" = R;
+        tabledata "Detailed Vendor Ledg. Entry" = R,
+        tabledata "G/L Budget Name" = R;
 }

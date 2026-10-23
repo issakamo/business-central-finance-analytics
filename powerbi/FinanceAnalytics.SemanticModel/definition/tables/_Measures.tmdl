@@ -58,19 +58,34 @@ table _Measures
 	measure 'GL Budget' =
 			
 			VAR Cutoff = [Reporting Through]
-			RETURN CALCULATE ( - SUM ( 'Fact GL Budget'[amount] ), KEEPFILTERS ( 'Date'[Date] <= Cutoff ) )
+			RETURN
+			    IF (
+			        HASONEVALUE ( 'Dim Budget'[budgetName] ),
+			        CALCULATE ( - SUM ( 'Fact GL Budget'[amount] ), KEEPFILTERS ( 'Date'[Date] <= Cutoff ) )
+			    )
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: 79732579-fd2f-4809-8a68-bff4670edfc2
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'GL Budget Full Year' = - SUM ( 'Fact GL Budget'[amount] )
+	measure 'GL Budget Full Year' =
+			
+			IF (
+			    HASONEVALUE ( 'Dim Budget'[budgetName] ),
+			    CALCULATE (
+			        - SUM ( 'Fact GL Budget'[amount] ),
+			        REMOVEFILTERS ( 'Date' ),
+			        VALUES ( 'Date'[Year] )
+			    )
+			)
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: 9429fc35-291e-4e38-b769-ab2b5d331468
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'GL Variance' = [GL Actual] - [GL Budget]
+	measure 'GL Variance' =
+			
+			IF ( HASONEVALUE ( 'Dim Budget'[budgetName] ), [GL Actual] - [GL Budget] )
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		lineageTag: 2341d27f-6031-45c4-b981-8daa97564e1f
 
@@ -370,6 +385,18 @@ table _Measures
 
 	measure 'Sales vs PY Color' = IF ( [Sales YTD vs PY %] < 0, "#C73E1D", "#3B8B5A" )
 		lineageTag: 2f3ec955-2058-45f4-97a2-ac800f7160a8
+
+	measure 'Budget Selection Label' =
+			
+			IF (
+			    HASONEVALUE ( 'Dim Budget'[budgetName] ),
+			    "Budget: " & SELECTEDVALUE ( 'Dim Budget'[description] ),
+			    "Select one budget to compare"
+			)
+		lineageTag: 284801ac-1877-4e5a-a2cd-02f293706a2b
+
+	measure 'Variance Cell Color' = IF ( [GL Variance] < 0, "#C73E1D", "#3B8B5A" )
+		lineageTag: 6d962eae-b032-4fb8-a630-2af314a5fd9d
 
 	partition _Measures = m
 		mode: import

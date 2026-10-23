@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "a2a052078cd462960d0f",
+  "position": {
+    "x": 1032,
+    "y": 1032,
+    "z": 12000,
+    "height": 48,
+    "width": 840,
+    "tabOrder": 12000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "June 2026 budget for 50110 excludes the one-time opening-inventory posting of 6/1/2025. Accounts with no budget (e.g., 40110, 60410) show their full actual as variance."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
