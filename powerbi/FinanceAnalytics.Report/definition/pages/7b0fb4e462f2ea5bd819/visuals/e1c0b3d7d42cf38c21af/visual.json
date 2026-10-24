@@ -57,6 +57,13 @@
                   "Value": "'Customer'"
                 }
               }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
             }
           }
         }

@@ -3,7 +3,7 @@
   "name": "414ecc25f2ba0d5d5976",
   "position": {
     "x": 0,
-    "y": 0,
+    "y": 24,
     "z": 2000,
     "height": 96,
     "width": 336,
@@ -68,6 +68,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Budget Description'"
+                }
+              }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
                 }
               }
             }

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "f8d507527045d6cc4fcf",
   "position": {
-    "x": 600,
-    "y": 1032,
+    "x": 504,
+    "y": 1056,
     "z": 10000,
-    "height": 48,
-    "width": 888,
+    "height": 24,
+    "width": 1272,
     "tabOrder": 10000
   },
   "visual": {
@@ -19,7 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "AR was $0 at every 2025 month-end (each invoice was settled within its month), so aging and DSO only show activity from January 2026."
+                    "value": "AR was $0 at every 2025 month-end (each invoice was settled within its month), so aging and DSO only show activity from January 2026.",
+                    "textStyle": {
+                      "fontSize": "14pt"
+                    }
                   }
                 ]
               }

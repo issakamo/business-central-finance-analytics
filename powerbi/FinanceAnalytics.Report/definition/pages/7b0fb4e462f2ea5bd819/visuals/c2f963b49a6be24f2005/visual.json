@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "c2f963b49a6be24f2005",
   "position": {
-    "x": 624,
+    "x": 696,
     "y": 792,
     "z": 9000,
-    "height": 240,
-    "width": 696,
+    "height": 264,
+    "width": 624,
     "tabOrder": 9000
   },
   "visual": {
@@ -71,6 +71,95 @@
           ]
         }
       }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "195.7999917051023D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "total": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Aging Bucket"
+                        }
+                      },
+                      "Property": "Bucket"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "183.80011489329738D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Aging Bucket"
+                          }
+                        },
+                        "Property": "Bucket"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Over 90'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "184.39997346472697D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim Customer.name"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [

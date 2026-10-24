@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
   "name": "a8cf06dd212fbb6dd8e6",
   "position": {
-    "x": 1176,
-    "y": 1032,
+    "x": 1008,
+    "y": 1056,
     "z": 12000,
-    "height": 48,
-    "width": 744,
+    "height": 24,
+    "width": 912,
     "tabOrder": 12000
   },
   "visual": {
@@ -22,7 +22,7 @@
                     "value": "Conference bundles carry $0 cost in the source data and show 100% margin; regular items earn about 22%.",
                     "textStyle": {
                       "fontStyle": "italic",
-                      "fontSize": "12pt"
+                      "fontSize": "14pt"
                     }
                   }
                 ]

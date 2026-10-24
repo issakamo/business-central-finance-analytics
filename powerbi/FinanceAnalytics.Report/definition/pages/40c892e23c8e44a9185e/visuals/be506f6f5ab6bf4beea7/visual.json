@@ -6,7 +6,7 @@
     "y": 1032,
     "z": 13000,
     "height": 48,
-    "width": 840,
+    "width": 864,
     "tabOrder": 13000
   },
   "visual": {
@@ -19,7 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Full-year budget includes $106,029 of annual depreciation budgeted in December, so it is lower than the year-to-date budget."
+                    "value": "Full-year budget includes $106,029 of annual depreciation budgeted in December, so it is lower than the year-to-date budget.",
+                    "textStyle": {
+                      "fontSize": "14pt"
+                    }
                   }
                 ]
               }

@@ -3,10 +3,10 @@
   "name": "fdab60555e3b5b17680d",
   "position": {
     "x": 0,
-    "y": 432,
+    "y": 504,
     "z": 10000,
-    "height": 600,
-    "width": 840,
+    "height": 504,
+    "width": 864,
     "tabOrder": 10000
   },
   "visual": {
@@ -250,6 +250,83 @@
             ],
             "metadata": "_Measures.GL Variance %"
           }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "138.66809751387078D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.GL Variance"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "99.6D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.GL Variance %"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "151.39999695428546D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.GL Budget"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "146.59999724435352D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.GL Actual"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "242.79999909257472D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Dim GL Account.accountCategory"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
         }
       ]
     },

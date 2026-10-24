@@ -3,7 +3,7 @@
   "name": "d795949366e98cb8412b",
   "position": {
     "x": 432,
-    "y": 0,
+    "y": 24,
     "z": 3000,
     "height": 96,
     "width": 288,
@@ -97,6 +97,19 @@
                     }
                   }
                 ]
+              }
+            }
+          }
+        }
+      ],
+      "header": [
+        {
+          "properties": {
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
               }
             }
           }
