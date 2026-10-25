@@ -3,6 +3,7 @@
 .snapshots/
 *.app
 rad.json
+Translations/
 
 # Power BI Project - local cache and machine settings
 **/.pbi/localSettings.json

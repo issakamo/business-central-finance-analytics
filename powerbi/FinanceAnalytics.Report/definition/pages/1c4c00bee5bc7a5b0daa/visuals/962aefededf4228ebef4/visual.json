@@ -5,8 +5,8 @@
     "x": 1608,
     "y": 144,
     "z": 6000,
-    "height": 264,
-    "width": 312,
+    "height": 240,
+    "width": 264,
     "tabOrder": 6000
   },
   "visual": {
@@ -71,6 +71,13 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "1L"
                 }
               }
             }

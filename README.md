@@ -31,14 +31,10 @@ A full PDF export of the report is available in [docs/FinanceAnalytics.pdf](docs
 
 ```mermaid
 flowchart LR
-    subgraph BC["Business Central online (Dev sandbox)"]
-        T["Ledger tables<br/>Value, G/L, Budget,<br/>Customer and Vendor ledgers"]
-        Q["12 AL API queries<br/>QueryType = API<br/>DataAccessIntent = ReadOnly"]
-        T --> Q
-    end
-    Q -- "API v1.0<br/>(read-only replica)" --> PQ["Power Query<br/>Business Central connector"]
-    PQ --> M["Star schema<br/>6 facts, 7 dimensions,<br/>DAX measures"]
-    M --> R["5 report pages<br/>+ Finance / Sales RLS"]
+    T["BC ledger tables"] --> Q["12 AL API queries<br/>read-only replica"]
+    Q -- "API v1.0" --> PQ["Power Query"]
+    PQ --> M["Star schema<br/>6 facts · 7 dims"]
+    M --> R["5 pages<br/>+ RLS"]
 ```
 
 **Why AL API queries instead of UI pages or OData web services:** the queries join and filter inside Business Central, run on the read-only replica, and give Power BI a stable, versioned contract (`/api/issakamo/financeAnalytics/v1.0`). Each query is covered by one least-privilege permission set, `FNX FINANCE API`.
