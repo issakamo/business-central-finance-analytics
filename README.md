@@ -1,5 +1,3 @@
-<img src="docs/images/logo.png" alt="Finance Analytics logo" width="100">
-
 # Business Central Finance Analytics
 
 A finance and working-capital analytics solution for **Dynamics 365 Business Central**: AL API queries expose ledger data to a **Power BI** star-schema model with five report pages, reconciled to Business Central's own reports.
