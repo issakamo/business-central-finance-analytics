@@ -2,7 +2,7 @@
   "id": "f1c6b4cf-0ae5-4b5f-8759-c2eb1cd017d7",
   "name": "business-central-finance-analytics",
   "publisher": "Issaka Mohammed",
-  "version": "1.0.0.0",
+  "version": "1.0.1.0",
   "brief": "API queries that expose Business Central finance data to Power BI.",
   "description": "Read-only API query objects for revenue and margin, budget vs. actual, AR aging and DSO, and working capital (DPO, DIO, cash conversion cycle), built for a Power BI star-schema model.",
   "privacyStatement": "https://github.com/issakamo/business-central-finance-analytics/blob/main/docs/privacy.md",
