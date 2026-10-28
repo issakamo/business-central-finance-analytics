@@ -1,5 +1,7 @@
 # Business Central Finance Analytics
 
+**Video walkthrough (5 min):** https://youtu.be/KChtyXQfgjk
+
 A finance and working-capital analytics solution for **Dynamics 365 Business Central**: AL API queries expose ledger data to a **Power BI** star-schema model with five report pages, reconciled to Business Central's own reports.
 
 > **Portfolio project.** Built on the CRONUS USA, Inc. demo company in a Business Central online sandbox (trial tenant). Figures are demo data; data quirks found along the way are documented in [docs/architecture.md](docs/architecture.md). A full PDF export of the report is available in [docs/FinanceAnalytics.pdf](docs/FinanceAnalytics.pdf).

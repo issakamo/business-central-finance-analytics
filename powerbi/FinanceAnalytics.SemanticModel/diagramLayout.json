@@ -5,207 +5,222 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 374.8784832338751
+        "y": 25
       },
       "nodes": [
         {
           "location": {
-            "x": 772.63954884354678,
-            "y": 300.19341736689694
+            "x": 971.69967242567259,
+            "y": 409.26678731715657
           },
           "nodeIndex": "Fact Sales",
           "nodeLineageTag": "39056876-b37c-4ed5-bc7d-d869e3ab11f8",
           "size": {
-            "height": 416,
+            "height": 176,
             "width": 234
           },
-          "zIndex": 8
+          "zIndex": 10,
+          "expandedHeight": 416
         },
         {
           "location": {
-            "x": 1061.3021817345632,
-            "y": 321.09571767524824
+            "x": 1137.0413546947641,
+            "y": 182.43924161693758
           },
           "nodeIndex": "Date",
           "nodeLineageTag": "db2f22ce-b43e-4f6f-a4ab-aeee5bbad25c",
           "size": {
-            "height": 200,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 11
+          "zIndex": 6,
+          "expandedHeight": 200
         },
         {
           "location": {
-            "x": 767.176146357024,
-            "y": 742.254846050426
+            "x": 1432.0863042675182,
+            "y": 1130.80137349729
           },
           "nodeIndex": "_Measures",
           "nodeLineageTag": "11d55bab-bd67-4e2a-9d38-6d9dbb035111",
           "size": {
-            "height": 259.96089569653589,
+            "height": 72,
             "width": 234
           },
-          "zIndex": 6
+          "zIndex": 3,
+          "expandedHeight": 259.96089569653589
         },
         {
           "location": {
-            "x": 1044.6231342993669,
-            "y": 548.340952025749
+            "x": 1582.6166827571421,
+            "y": 422.42756834414212
           },
           "nodeIndex": "Dim Customer",
           "nodeLineageTag": "7b261f09-50c9-4208-a132-2c473465e1bb",
           "size": {
-            "height": 300,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 12
+          "zIndex": 8,
+          "expandedHeight": 300
         },
         {
           "location": {
-            "x": 460.65577868526179,
-            "y": 537.9945503987442
+            "x": 552.22914863552148,
+            "y": 748.32713450324673
           },
           "nodeIndex": "Dim Item",
           "nodeLineageTag": "8069131b-5ee0-4826-811e-6ff08ad3143c",
           "size": {
-            "height": 272,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 7
+          "zIndex": 15,
+          "expandedHeight": 272
         },
         {
           "location": {
-            "x": 461.31233853912636,
-            "y": 294.01467112528951
+            "x": 570.05571535505953,
+            "y": 437.09806167257011
           },
           "nodeIndex": "Dim Salesperson",
           "nodeLineageTag": "dd0aaef0-da54-46be-8873-0e411328915f",
           "size": {
-            "height": 176,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 9
+          "zIndex": 4,
+          "expandedHeight": 176
         },
         {
           "location": {
-            "x": 1666.3726748679308,
-            "y": 539.29183764778759
+            "x": 1601.0312744065345,
+            "y": 722.43857754830674
           },
           "nodeIndex": "Dim GL Account",
           "nodeLineageTag": "caa7779a-943c-4e2d-95f0-962112aade4f",
           "size": {
-            "height": 200,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 10
+          "zIndex": 5,
+          "expandedHeight": 200
         },
         {
           "location": {
-            "x": 1400.9324551663731,
-            "y": 325.31510461294215
+            "x": 1321.1199122559128,
+            "y": 635.84291871751225
           },
           "nodeIndex": "Fact GL Actual",
           "nodeLineageTag": "52f7b18c-715c-4f24-b0e1-fb4a350e6d17",
           "size": {
-            "height": 296,
+            "height": 128,
             "width": 234
           },
-          "zIndex": 14
+          "zIndex": 7,
+          "expandedHeight": 145
         },
         {
           "location": {
-            "x": 1400.1965079772847,
-            "y": 634.05105180203043
+            "x": 1322.5064599175685,
+            "y": 417.00774364283382
           },
           "nodeIndex": "Fact GL Budget",
           "nodeLineageTag": "97d9c664-17b5-481b-97ec-26e819e82758",
           "size": {
-            "height": 248,
+            "height": 152,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 13,
+          "expandedHeight": 248
         },
         {
           "location": {
-            "x": 1701.0033768350841,
-            "y": 236.98634149301941
+            "x": 968.33723054145958,
+            "y": 635.23069639357266
           },
           "nodeIndex": "Fact AR Detail",
           "nodeLineageTag": "81dd21f4-ac39-4f51-9962-0475b76b2b41",
           "size": {
-            "height": 300,
+            "height": 152,
             "width": 234
           },
-          "zIndex": 13
+          "zIndex": 9,
+          "expandedHeight": 300
         },
         {
           "location": {
-            "x": 1711.7868397667598,
-            "y": 1181.2670589591417
+            "x": 781.23359820508131,
+            "y": 1119.6240369163572
           },
           "nodeIndex": "Aging Bucket",
           "nodeLineageTag": "b17a14f1-2c50-4ec1-8475-033bb275d84e",
           "size": {
-            "height": 200,
+            "height": 72,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 12,
+          "expandedHeight": 200
         },
         {
           "location": {
-            "x": 1669.6294481959417,
-            "y": 766.20453437124547
+            "x": 1617.642468408568,
+            "y": 989.89158827355425
           },
           "nodeIndex": "Dim Vendor",
           "nodeLineageTag": "79673d71-375d-47ac-8529-bed504037b15",
           "size": {
-            "height": 296,
+            "height": 104,
             "width": 239.72333562189124
           },
-          "zIndex": 15
+          "zIndex": 11,
+          "expandedHeight": 296
         },
         {
           "location": {
-            "x": 1972.2302889670884,
-            "y": 612.53614039112824
+            "x": 970.91319891721253,
+            "y": 833.04291338424377
           },
           "nodeIndex": "Fact AP Detail",
           "nodeLineageTag": "94f2551a-c9e5-4253-b80b-11ea0a4b7369",
           "size": {
-            "height": 300,
+            "height": 128,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 2,
+          "expandedHeight": 300
         },
         {
           "location": {
-            "x": 728.14073839483615,
-            "y": 0
+            "x": 1179.8724817281918,
+            "y": 985.22767843859242
           },
           "nodeIndex": "Fact Inventory Value",
           "nodeLineageTag": "fe8c2db6-5c1a-47f3-9e62-7eef2704c01e",
           "size": {
-            "height": 296,
+            "height": 128,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 14,
+          "expandedHeight": 296
         },
         {
           "location": {
-            "x": 1320.5059752605775,
-            "y": 941.58579504637657
+            "x": 1321.8734598128117,
+            "y": 822.29329332995815
           },
           "nodeIndex": "Dim Budget",
           "nodeLineageTag": "bc2de1d7-3c44-4262-90ef-a0fb35aa3e68",
           "size": {
-            "height": 152,
+            "height": 104,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 1,
+          "expandedHeight": 152
         }
       ],
       "name": "All tables",
-      "zoomValue": 69.889313929107615,
+      "zoomValue": 40,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
